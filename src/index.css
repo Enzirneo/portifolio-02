@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,38 +6,39 @@
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 220 20% 10%;
+    --background: 0 0% 99%;
+    --foreground: 220 25% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 10%;
+    --card-foreground: 220 25% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 10%;
+    --popover-foreground: 220 25% 8%;
 
     --primary: 215 50% 23%;
-    --primary-foreground: 0 0% 98%;
+    --primary-foreground: 0 0% 99%;
 
-    --secondary: 210 20% 95%;
-    --secondary-foreground: 220 20% 10%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 25% 8%;
 
-    --muted: 210 15% 93%;
-    --muted-foreground: 215 10% 50%;
+    --muted: 220 10% 94%;
+    --muted-foreground: 220 8% 46%;
 
     --accent: 215 50% 23%;
-    --accent-foreground: 0 0% 98%;
+    --accent-foreground: 0 0% 99%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 90%;
-    --input: 220 13% 90%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
     --ring: 215 50% 23%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --font-display: 'Playfair Display', Georgia, serif;
+    --font-display: 'Inter', system-ui, sans-serif;
     --font-body: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -50,35 +51,35 @@
   }
 
   .dark {
-    --background: 220 20% 7%;
-    --foreground: 210 20% 92%;
+    --background: 220 25% 5%;
+    --foreground: 210 15% 90%;
 
-    --card: 220 18% 10%;
-    --card-foreground: 210 20% 92%;
+    --card: 220 22% 8%;
+    --card-foreground: 210 15% 90%;
 
-    --popover: 220 18% 10%;
-    --popover-foreground: 210 20% 92%;
+    --popover: 220 22% 8%;
+    --popover-foreground: 210 15% 90%;
 
     --primary: 210 45% 55%;
-    --primary-foreground: 220 20% 7%;
+    --primary-foreground: 220 25% 5%;
 
-    --secondary: 220 15% 15%;
-    --secondary-foreground: 210 20% 92%;
+    --secondary: 220 18% 12%;
+    --secondary-foreground: 210 15% 90%;
 
-    --muted: 220 15% 15%;
-    --muted-foreground: 215 12% 55%;
+    --muted: 220 18% 12%;
+    --muted-foreground: 215 10% 50%;
 
     --accent: 210 45% 55%;
-    --accent-foreground: 220 20% 7%;
+    --accent-foreground: 220 25% 5%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 15% 18%;
-    --input: 220 15% 18%;
+    --border: 220 15% 16%;
+    --input: 220 15% 16%;
     --ring: 210 45% 55%;
 
-    --sidebar-background: 220 20% 7%;
+    --sidebar-background: 220 25% 5%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
@@ -95,7 +96,8 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
   }
 
   html {
@@ -103,34 +105,44 @@
   }
 
   ::selection {
-    @apply bg-primary/20 text-foreground;
+    @apply bg-primary/15 text-foreground;
   }
 }
 
 @layer components {
   .section-padding {
-    @apply px-6 md:px-12 lg:px-24 py-20 md:py-32;
+    @apply px-6 md:px-12 lg:px-24 py-20 md:py-28;
   }
 
   .heading-display {
     font-family: var(--font-display);
-    @apply text-4xl md:text-5xl lg:text-6xl font-light leading-tight tracking-tight;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight;
   }
 
   .heading-section {
     font-family: var(--font-display);
-    @apply text-3xl md:text-4xl font-light leading-tight;
+    @apply text-2xl md:text-3xl font-semibold leading-tight tracking-tight;
   }
 
   .label-tag {
-    @apply text-xs tracking-[0.25em] uppercase font-medium text-primary;
+    font-family: var(--font-mono);
+    @apply text-xs tracking-wider text-primary font-medium;
   }
 
   .text-body {
-    @apply text-base md:text-lg leading-relaxed text-muted-foreground;
+    @apply text-base leading-relaxed text-muted-foreground;
   }
 
   .divider-accent {
-    @apply w-12 h-[2px] bg-primary;
+    @apply w-8 h-[2px] bg-primary;
+  }
+
+  .card-system {
+    @apply bg-card border border-border rounded-lg p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-sm;
+  }
+
+  .mono-label {
+    font-family: var(--font-mono);
+    @apply text-[11px] tracking-wider uppercase text-muted-foreground;
   }
 }

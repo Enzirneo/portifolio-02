@@ -1,22 +1,38 @@
 export interface Skill {
   name: string;
-  category: string;
-  level: number; // 0-100
+  category: 'architecture' | 'development' | 'ux';
 }
 
 export const skills: Skill[] = [
-  { name: 'React', category: 'Frontend', level: 95 },
-  { name: 'TypeScript', category: 'Frontend', level: 90 },
-  { name: 'Next.js', category: 'Frontend', level: 85 },
-  { name: 'Tailwind CSS', category: 'Styling', level: 95 },
-  { name: 'Framer Motion', category: 'Animation', level: 80 },
-  { name: 'Figma', category: 'Design', level: 85 },
-  { name: 'Node.js', category: 'Backend', level: 70 },
-  { name: 'Git', category: 'Tools', level: 90 },
-  { name: 'Design Systems', category: 'Design', level: 85 },
-  { name: 'GSAP', category: 'Animation', level: 70 },
-  { name: 'JavaScript', category: 'Frontend', level: 95 },
-  { name: 'HTML/CSS', category: 'Frontend', level: 95 },
+  // Architecture & Engineering
+  { name: 'System Design', category: 'architecture' },
+  { name: 'Microservices', category: 'architecture' },
+  { name: 'Design Patterns', category: 'architecture' },
+  { name: 'Clean Architecture', category: 'architecture' },
+  { name: 'CI/CD', category: 'architecture' },
+  { name: 'Cloud (AWS)', category: 'architecture' },
+  { name: 'Docker', category: 'architecture' },
+  { name: 'API Design', category: 'architecture' },
+
+  // Development
+  { name: 'React', category: 'development' },
+  { name: 'TypeScript', category: 'development' },
+  { name: 'Node.js', category: 'development' },
+  { name: 'Next.js', category: 'development' },
+  { name: 'Python', category: 'development' },
+  { name: 'PostgreSQL', category: 'development' },
+  { name: 'Git', category: 'development' },
+  { name: 'Testing', category: 'development' },
+
+  // UX & Product
+  { name: 'Design Systems', category: 'ux' },
+  { name: 'Figma', category: 'ux' },
+  { name: 'User Research', category: 'ux' },
+  { name: 'Product Thinking', category: 'ux' },
 ];
 
-export const categories = [...new Set(skills.map(s => s.category))];
+export const categoryLabels = {
+  architecture: { pt: 'Arquitetura & Engenharia', en: 'Architecture & Engineering' },
+  development: { pt: 'Desenvolvimento', en: 'Development' },
+  ux: { pt: 'UX & Produto', en: 'UX & Product' },
+};

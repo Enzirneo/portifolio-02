@@ -17,7 +17,7 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { label: t.about, href: '#about' },
+    { label: t.approach, href: '#approach' },
     { label: t.skills, href: '#skills' },
     { label: t.projects, href: '#projects' },
     { label: t.experience, href: '#experience' },
@@ -42,14 +42,14 @@ const Header = () => {
             : 'bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between h-16 md:h-20">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between h-14 md:h-16">
           <motion.a
             href="#"
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-            className="font-display text-xl font-semibold text-foreground tracking-tight"
+            className="font-mono text-sm font-semibold text-foreground tracking-tight"
             whileHover={{ scale: 1.02 }}
           >
-            YN<span className="text-primary">.</span>
+            {'<YN />'}
           </motion.a>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -57,7 +57,7 @@ const Header = () => {
               <button
                 key={item.href}
                 onClick={() => scrollTo(item.href)}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 relative group"
+                className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 relative group"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full" />
@@ -65,14 +65,14 @@ const Header = () => {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             <button
               onClick={toggleLanguage}
-              className="p-2 text-muted-foreground hover:text-foreground transition-colors duration-300"
+              className="p-2 text-muted-foreground hover:text-foreground transition-colors duration-300 flex items-center gap-1"
               aria-label="Toggle language"
             >
-              <Globe className="w-4 h-4" />
-              <span className="text-[10px] ml-0.5 font-medium uppercase">{language}</span>
+              <Globe className="w-3.5 h-3.5" />
+              <span className="text-[10px] font-mono font-medium uppercase">{language}</span>
             </button>
 
             <button
@@ -80,7 +80,7 @@ const Header = () => {
               className="p-2 text-muted-foreground hover:text-foreground transition-colors duration-300"
               aria-label="Toggle theme"
             >
-              {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+              {theme === 'light' ? <Moon className="w-3.5 h-3.5" /> : <Sun className="w-3.5 h-3.5" />}
             </button>
 
             <button
@@ -101,17 +101,17 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl pt-24 px-8 md:hidden"
+            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl pt-20 px-8 md:hidden"
           >
-            <nav className="flex flex-col gap-6">
+            <nav className="flex flex-col gap-5">
               {navItems.map((item, i) => (
                 <motion.button
                   key={item.href}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.08 }}
+                  transition={{ delay: i * 0.06 }}
                   onClick={() => scrollTo(item.href)}
-                  className="text-2xl font-display text-foreground text-left"
+                  className="text-xl font-semibold text-foreground text-left"
                 >
                   {item.label}
                 </motion.button>

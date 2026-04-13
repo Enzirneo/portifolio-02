@@ -1,33 +1,9 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
 import { useAppContext } from '@/lib/theme';
 import { translations } from '@/lib/i18n';
 import SectionReveal from '@/components/SectionReveal/SectionReveal';
-import { skills } from './Skills.data';
+import { skills, categoryLabels } from './Skills.data';
 
-const SkillBar = ({ name, level, delay }: { name: string; level: number; delay: number }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
-
-  return (
-    <div ref={ref} className="group">
-      <div className="flex justify-between items-center mb-2">
-        <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-300">
-          {name}
-        </span>
-        <span className="text-xs text-muted-foreground font-mono">{level}%</span>
-      </div>
-      <div className="h-[2px] bg-border overflow-hidden">
-        <motion.div
-          initial={{ width: 0 }}
-          animate={isInView ? { width: `${level}%` } : { width: 0 }}
-          transition={{ duration: 1, delay, ease: [0.22, 1, 0.36, 1] }}
-          className="h-full bg-primary"
-        />
-      </div>
-    </div>
-  );
-};
+const categories = ['architecture', 'development', 'ux'] as const;
 
 const Skills = () => {
   const { language } = useAppContext();
@@ -50,10 +26,27 @@ const Skills = () => {
           </SectionReveal>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-x-20 gap-y-8">
-          {skills.map((skill, i) => (
-            <SkillBar key={skill.name} name={skill.name} level={skill.level} delay={i * 0.05} />
-          ))}
+        <div className="grid md:grid-cols-3 gap-6">
+          {categories.map((cat, ci) => {
+            const catSkills = skills.filter(s => s.category === cat);
+            return (
+              <SectionReveal key={cat} delay={0.1 + ci * 0.1}>
+                <div className="card-system h-full">
+                  <p className="mono-label mb-5">{categoryLabels[cat][language]}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {catSkills.map(skill => (
+                      <span
+                        key={skill.name}
+                        className="text-sm px-3 py-1.5 rounded-md bg-secondary text-foreground border border-border transition-colors hover:border-primary/40 hover:text-primary"
+                      >
+                        {skill.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </SectionReveal>
+            );
+          })}
         </div>
       </div>
     </section>

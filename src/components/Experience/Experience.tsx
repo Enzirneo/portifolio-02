@@ -13,21 +13,22 @@ const TimelineItem = ({ item, index }: { item: typeof experiences[0]; index: num
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, x: -30 }}
+      initial={{ opacity: 0, x: -20 }}
       animate={isInView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
-      className="relative pl-8 pb-12 last:pb-0 group"
+      transition={{ duration: 0.5, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
+      className="relative pl-8 pb-10 last:pb-0 group"
     >
-      {/* Timeline line */}
       <div className="absolute left-0 top-2 bottom-0 w-[1px] bg-border group-last:hidden" />
-      {/* Dot */}
       <div className="absolute left-[-3px] top-2 w-[7px] h-[7px] rounded-full bg-primary" />
 
-      <p className="text-xs font-mono text-muted-foreground mb-1">{item.period}</p>
-      <h3 className="text-lg font-display font-semibold text-foreground mb-1">
+      <div className="flex items-center gap-3 mb-1">
+        <span className="mono-label">{item.period}</span>
+        <span className="mono-label text-primary">{item.phase}</span>
+      </div>
+      <h3 className="text-base font-semibold text-foreground mb-0.5">
         {item.role[language]}
       </h3>
-      <p className="text-sm font-medium text-primary mb-3">{item.company}</p>
+      <p className="text-sm font-medium text-primary mb-2">{item.company}</p>
       <p className="text-sm text-muted-foreground leading-relaxed">
         {item.description[language]}
       </p>

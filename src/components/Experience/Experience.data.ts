@@ -3,34 +3,38 @@ export interface ExperienceItem {
   company: string;
   period: string;
   description: { pt: string; en: string };
+  phase: string;
 }
 
 export const experiences: ExperienceItem[] = [
   {
-    role: { pt: 'Desenvolvedor Front-End Senior', en: 'Senior Front-End Developer' },
+    role: { pt: 'Engenheiro de Software Senior', en: 'Senior Software Engineer' },
     company: 'Tech Company',
     period: '2023 — Presente',
+    phase: 'architecture',
     description: {
-      pt: 'Liderança técnica no desenvolvimento de aplicações React, criação de design systems e mentoria de desenvolvedores juniores.',
-      en: 'Technical leadership in React application development, design system creation and mentoring junior developers.',
+      pt: 'Arquitetura de sistemas distribuídos, liderança técnica de squads e definição de padrões de engenharia para toda a organização.',
+      en: 'Distributed systems architecture, technical squad leadership and engineering standards definition across the organization.',
     },
   },
   {
-    role: { pt: 'Desenvolvedor Front-End', en: 'Front-End Developer' },
+    role: { pt: 'Desenvolvedor Front-End Senior', en: 'Senior Front-End Developer' },
     company: 'Digital Agency',
     period: '2021 — 2023',
+    phase: 'frontend',
     description: {
-      pt: 'Desenvolvimento de interfaces responsivas e acessíveis para clientes de diversos segmentos, utilizando React e TypeScript.',
-      en: 'Development of responsive and accessible interfaces for clients across various segments, using React and TypeScript.',
+      pt: 'Criação de design systems, migração de codebase para TypeScript e implementação de pipelines de CI/CD.',
+      en: 'Design system creation, codebase migration to TypeScript and CI/CD pipeline implementation.',
     },
   },
   {
-    role: { pt: 'Desenvolvedor Web Junior', en: 'Junior Web Developer' },
+    role: { pt: 'Desenvolvedor Full Stack', en: 'Full Stack Developer' },
     company: 'Startup',
     period: '2019 — 2021',
+    phase: 'fullstack',
     description: {
-      pt: 'Início da carreira com foco em HTML, CSS, JavaScript e primeiros projetos em React.',
-      en: 'Career start focused on HTML, CSS, JavaScript and first React projects.',
+      pt: 'Desenvolvimento de APIs REST, interfaces em React e infraestrutura básica em AWS. Primeiro contato com arquitetura de microsserviços.',
+      en: 'REST API development, React interfaces and basic AWS infrastructure. First contact with microservices architecture.',
     },
   },
 ];
