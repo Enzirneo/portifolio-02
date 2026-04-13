@@ -1,38 +1,102 @@
-export interface Skill {
-  name: string;
-  category: 'architecture' | 'development' | 'ux';
-}
+import type { IconType } from 'react-icons';
+import {
+  FaReact,
+  FaNodeJs,
+  FaDocker,
+  FaAws,
+  FaHtml5,
+  FaCss3Alt,
+  FaFigma,
+  FaGitAlt,
+  FaPython,
+  FaJava,
+} from 'react-icons/fa';
+import {
+  SiTypescript,
+  SiJavascript,
+  SiMysql,
+  SiAngular,
+  SiVuedotjs,
+  SiTailwindcss,
+  SiNextdotjs,
+  SiMongodb,
+  SiPostgresql,
+  SiFirebase,
+} from 'react-icons/si';
 
-export const skills: Skill[] = [
-  // Architecture & Engineering
-  { name: 'System Design', category: 'architecture' },
-  { name: 'Microservices', category: 'architecture' },
-  { name: 'Design Patterns', category: 'architecture' },
-  { name: 'Clean Architecture', category: 'architecture' },
-  { name: 'CI/CD', category: 'architecture' },
-  { name: 'Cloud (AWS)', category: 'architecture' },
-  { name: 'Docker', category: 'architecture' },
-  { name: 'API Design', category: 'architecture' },
-
-  // Development
-  { name: 'React', category: 'development' },
-  { name: 'TypeScript', category: 'development' },
-  { name: 'Node.js', category: 'development' },
-  { name: 'Next.js', category: 'development' },
-  { name: 'Python', category: 'development' },
-  { name: 'PostgreSQL', category: 'development' },
-  { name: 'Git', category: 'development' },
-  { name: 'Testing', category: 'development' },
-
-  // UX & Product
-  { name: 'Design Systems', category: 'ux' },
-  { name: 'Figma', category: 'ux' },
-  { name: 'User Research', category: 'ux' },
-  { name: 'Product Thinking', category: 'ux' },
-];
-
-export const categoryLabels = {
-  architecture: { pt: 'Arquitetura & Engenharia', en: 'Architecture & Engineering' },
-  development: { pt: 'Desenvolvimento', en: 'Development' },
-  ux: { pt: 'UX & Produto', en: 'UX & Product' },
+export type LocalizedText = {
+  pt: string;
+  en: string;
 };
+
+export type SkillItem = {
+  name: string;
+  icon?: IconType;
+};
+
+export type SkillCategory = {
+  title: LocalizedText;
+  items: SkillItem[];
+};
+
+export const skillCategories: SkillCategory[] = [
+  {
+    title: {
+      pt: 'Architecture & Engineering',
+      en: 'Architecture & Engineering',
+    },
+    items: [
+      { name: 'System Design' },
+      { name: 'Scalable Systems' },
+      { name: 'Clean Architecture' },
+      { name: 'Design Patterns' },
+      { name: 'API Design' },
+      { name: 'Modular Architecture' },
+      { name: 'Performance Optimization' },
+      { name: 'Code Organization', icon: FaGitAlt },
+    ],
+  },
+  {
+    title: {
+      pt: 'Development',
+      en: 'Development',
+    },
+    items: [
+      { name: 'React', icon: FaReact },
+      { name: 'TypeScript', icon: SiTypescript },
+      { name: 'JavaScript', icon: SiJavascript },
+      { name: 'Node.js', icon: FaNodeJs },
+      { name: 'Python', icon: FaPython },
+      { name: 'Java', icon: FaJava },
+      { name: 'HTML', icon: FaHtml5 },
+      { name: 'CSS', icon: FaCss3Alt },
+      { name: 'Angular', icon: SiAngular },
+      { name: 'Vue', icon: SiVuedotjs },
+      { name: 'Tailwind CSS', icon: SiTailwindcss },
+      { name: 'Next.js', icon: SiNextdotjs },
+      { name: 'MySQL', icon: SiMysql },
+      { name: 'PostgreSQL', icon: SiPostgresql },
+      { name: 'MongoDB', icon: SiMongodb },
+      { name: 'Firebase', icon: SiFirebase },
+      { name: 'Docker', icon: FaDocker },
+      { name: 'AWS', icon: FaAws },
+      { name: 'Git', icon: FaGitAlt },
+    ],
+  },
+  {
+    title: {
+      pt: 'UX & Product',
+      en: 'UX & Product',
+    },
+    items: [
+      { name: 'Figma', icon: FaFigma },
+      { name: 'UX/UI Design' },
+      { name: 'Design Systems' },
+      { name: 'User-Centered Design' },
+      { name: 'Product Thinking' },
+      { name: 'Wireframing' },
+      { name: 'Prototyping' },
+      { name: 'Information Architecture' },
+    ],
+  },
+];

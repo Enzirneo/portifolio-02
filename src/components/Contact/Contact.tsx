@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Github } from 'lucide-react';
+import { Mail, Github } from 'lucide-react';
 import { useAppContext } from '@/lib/theme';
 import { translations } from '@/lib/i18n';
 import SectionReveal from '@/components/SectionReveal/SectionReveal';
@@ -15,7 +15,7 @@ const Contact = () => {
           <div className="divider-accent mb-8" />
         </SectionReveal>
 
-        <div className="max-w-2xl">
+        <div className="max-w-3xl">
           <SectionReveal delay={0.1}>
             <h2 className="heading-section mb-6">{t.title}</h2>
           </SectionReveal>
@@ -25,36 +25,37 @@ const Contact = () => {
           </SectionReveal>
 
           <SectionReveal delay={0.3}>
-            <a
-              href="mailto:hello@example.com"
-              className="inline-flex items-center gap-3 px-6 py-3 bg-primary text-primary-foreground text-sm font-medium tracking-wide rounded-md transition-all duration-300 hover:opacity-90 mb-8"
-            >
-              <Mail className="w-4 h-4" />
-              {t.email}
-            </a>
+            <div className="flex flex-wrap gap-3 mb-8">
+              <a
+                href="mailto:enzo.bispo22@gmail.com"
+                className="inline-flex items-center gap-3 px-6 py-3 bg-primary text-primary-foreground text-sm font-medium tracking-wide rounded-md transition-all duration-300 hover:opacity-90"
+              >
+                <Mail className="w-4 h-4" />
+                {t.email}
+              </a>
+
+              <a
+                href="https://github.com/Enzirneo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-6 py-3 border border-border text-foreground text-sm font-medium tracking-wide rounded-md transition-all duration-300 hover:border-primary hover:text-primary"
+              >
+                <Github className="w-4 h-4" />
+                GitHub
+              </a>
+            </div>
           </SectionReveal>
 
           <SectionReveal delay={0.4}>
-            <p className="text-sm text-muted-foreground mb-4">{t.or}</p>
-            <div className="flex gap-3">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2.5 border border-border text-muted-foreground hover:text-foreground hover:border-primary rounded-md transition-all duration-300"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2.5 border border-border text-muted-foreground hover:text-foreground hover:border-primary rounded-md transition-all duration-300"
-                aria-label="GitHub"
-              >
-                <Github className="w-4 h-4" />
-              </a>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="card-system">
+                <p className="mono-label mb-2">email</p>
+                <p className="text-sm text-foreground break-all">enzo.bispo22@gmail.com</p>
+              </div>
+              <div className="card-system">
+                <p className="mono-label mb-2">github</p>
+                <p className="text-sm text-foreground break-all">github.com/Enzirneo</p>
+              </div>
             </div>
           </SectionReveal>
         </div>

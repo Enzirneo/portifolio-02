@@ -36,31 +36,39 @@ const Header = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? 'bg-background/80 backdrop-blur-xl border-b border-border'
-            : 'bg-transparent'
+        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ${
+          scrolled ? 'border-b border-border bg-background/75 backdrop-blur-xl' : 'bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between h-14 md:h-16">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 md:px-12 lg:px-24">
           <motion.a
             href="#"
-            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-            className="font-mono text-sm font-semibold text-foreground tracking-tight"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="flex items-center"
             whileHover={{ scale: 1.02 }}
           >
-            {'<YN />'}
+            <div>
+              <p className="text-lg font-semibold tracking-[-0.03em] text-foreground sm:text-xl md:text-[1.35rem]">
+                Enzo Villela Bispo
+              </p>
+              <p className="hidden font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground sm:block">
+                Software Architecture
+              </p>
+            </div>
           </motion.a>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden items-center gap-8 md:flex">
             {navItems.map((item) => (
               <button
                 key={item.href}
                 onClick={() => scrollTo(item.href)}
-                className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 relative group"
+                className="group relative text-[13px] font-medium text-muted-foreground transition-colors duration-300 hover:text-foreground"
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 h-[1px] w-0 bg-primary transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
           </nav>
@@ -68,27 +76,27 @@ const Header = () => {
           <div className="flex items-center gap-1">
             <button
               onClick={toggleLanguage}
-              className="p-2 text-muted-foreground hover:text-foreground transition-colors duration-300 flex items-center gap-1"
+              className="flex items-center gap-1 p-2 text-muted-foreground transition-colors duration-300 hover:text-foreground"
               aria-label="Toggle language"
             >
-              <Globe className="w-3.5 h-3.5" />
+              <Globe className="h-3.5 w-3.5" />
               <span className="text-[10px] font-mono font-medium uppercase">{language}</span>
             </button>
 
             <button
               onClick={toggleTheme}
-              className="p-2 text-muted-foreground hover:text-foreground transition-colors duration-300"
+              className="p-2 text-muted-foreground transition-colors duration-300 hover:text-foreground"
               aria-label="Toggle theme"
             >
-              {theme === 'light' ? <Moon className="w-3.5 h-3.5" /> : <Sun className="w-3.5 h-3.5" />}
+              {theme === 'light' ? <Moon className="h-3.5 w-3.5" /> : <Sun className="h-3.5 w-3.5" />}
             </button>
 
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
+              className="p-2 text-muted-foreground transition-colors hover:text-foreground md:hidden"
               aria-label="Menu"
             >
-              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
@@ -101,7 +109,7 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl pt-20 px-8 md:hidden"
+            className="fixed inset-0 z-40 bg-background/95 px-8 pt-20 backdrop-blur-xl md:hidden"
           >
             <nav className="flex flex-col gap-5">
               {navItems.map((item, i) => (
@@ -111,7 +119,7 @@ const Header = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.06 }}
                   onClick={() => scrollTo(item.href)}
-                  className="text-xl font-semibold text-foreground text-left"
+                  className="text-left text-xl font-semibold text-foreground"
                 >
                   {item.label}
                 </motion.button>

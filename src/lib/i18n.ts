@@ -11,9 +11,9 @@ export const translations = {
     },
     hero: {
       greeting: '// Olá, eu sou',
-      name: 'Seu Nome',
-      role: 'Engenheiro de Software & Arquiteto de Sistemas',
-      description: 'Construo sistemas escaláveis com código limpo, arquitetura sólida e foco em experiência do usuário. Da infraestrutura ao pixel.',
+      name: 'Enzo Villela Bispo',
+      role: 'Full Stack Developer · Software Architecture · UX-Oriented Solutions',
+      description: 'Construo aplicações web e sistemas escaláveis unindo frontend, backend, arquitetura e experiência do usuário. Meu foco é criar soluções que funcionem bem hoje e permaneçam sustentáveis amanhã.',
       cta: 'Ver projetos',
       ctaSecondary: 'Fale comigo',
     },
@@ -47,7 +47,7 @@ export const translations = {
     skills: {
       tag: '// skills',
       title: 'Stack & Competências',
-      description: 'Experiência distribuída entre arquitetura, desenvolvimento e produto.',
+      description: 'Competências organizadas para mostrar stack, repertório técnico e a identidade visual de cada tecnologia.',
     },
     projects: {
       tag: '// projetos',
@@ -65,7 +65,7 @@ export const translations = {
     contact: {
       tag: '// contato',
       title: 'Vamos construir algo juntos?',
-      description: 'Aberto a oportunidades em engenharia de software, arquitetura de sistemas e liderança técnica.',
+      description: 'Aberto a oportunidades em engenharia de software, arquitetura de sistemas, frontend estratégico e produtos digitais com forte preocupação em UX.',
       email: 'Enviar email',
       or: 'ou encontre-me em',
     },
@@ -85,9 +85,9 @@ export const translations = {
     },
     hero: {
       greeting: '// Hi, I\'m',
-      name: 'Your Name',
-      role: 'Software Engineer & Systems Architect',
-      description: 'I build scalable systems with clean code, solid architecture and focus on user experience. From infrastructure to pixel.',
+      name: 'Enzo Villela Bispo',
+      role: 'Full Stack Developer · Software Architecture · UX-Oriented Solutions',
+      description: 'I build web applications and scalable systems by connecting frontend, backend, architecture and user experience. My focus is to create solutions that work well today and stay sustainable tomorrow.',
       cta: 'View projects',
       ctaSecondary: 'Get in touch',
     },
@@ -121,7 +121,7 @@ export const translations = {
     skills: {
       tag: '// skills',
       title: 'Stack & Competencies',
-      description: 'Experience distributed across architecture, development and product.',
+      description: 'Competencies organized to show stack, technical range and the visual identity of each technology.',
     },
     projects: {
       tag: '// projects',
@@ -139,7 +139,7 @@ export const translations = {
     contact: {
       tag: '// contact',
       title: "Let's build something together?",
-      description: 'Open to opportunities in software engineering, systems architecture and technical leadership.',
+      description: 'Open to opportunities in software engineering, systems architecture, strategic frontend and digital products with a strong UX mindset.',
       email: 'Send email',
       or: 'or find me at',
     },

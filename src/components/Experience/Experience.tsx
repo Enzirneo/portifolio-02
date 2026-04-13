@@ -22,13 +22,18 @@ const TimelineItem = ({ item, index }: { item: typeof experiences[0]; index: num
       <div className="absolute left-[-3px] top-2 w-[7px] h-[7px] rounded-full bg-primary" />
 
       <div className="flex items-center gap-3 mb-1">
-        <span className="mono-label">{item.period}</span>
-        <span className="mono-label text-primary">{item.phase}</span>
+        <span className="mono-label">{item.period[language]}</span>
+        <span className="mono-label text-primary">{item.phase[language]}</span>
       </div>
+
       <h3 className="text-base font-semibold text-foreground mb-0.5">
         {item.role[language]}
       </h3>
-      <p className="text-sm font-medium text-primary mb-2">{item.company}</p>
+
+      <p className="text-sm font-medium text-primary mb-2">
+        {item.company[language]}
+      </p>
+
       <p className="text-sm text-muted-foreground leading-relaxed">
         {item.description[language]}
       </p>
