@@ -15,22 +15,18 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
   return (
     <motion.article
       ref={ref}
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
-      className="group relative"
+      transition={{ duration: 0.6, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
+      className="card-system group"
     >
-      <div className="aspect-[16/10] bg-secondary rounded-lg mb-6 overflow-hidden relative flex items-center justify-center border border-border group-hover:border-primary/30 transition-all duration-500">
-        <span className="text-6xl font-display font-light text-muted-foreground/20 group-hover:text-primary/20 transition-colors duration-500">
-          {String(index + 1).padStart(2, '0')}
-        </span>
-        <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-500" />
-      </div>
-
-      <div className="flex items-start justify-between mb-3">
-        <h3 className="text-xl font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
-          {project.title}
-        </h3>
+      <div className="flex items-start justify-between mb-4">
+        <div className="flex items-center gap-3">
+          <span className="mono-label">{String(index + 1).padStart(2, '0')}</span>
+          <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+            {project.title}
+          </h3>
+        </div>
         <div className="flex gap-2">
           {project.github && (
             <a href={project.github} className="text-muted-foreground hover:text-foreground transition-colors" aria-label="GitHub">
@@ -45,13 +41,24 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
         </div>
       </div>
 
-      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-        {project.description[language]}
-      </p>
+      <div className="space-y-3 mb-5">
+        <div>
+          <p className="mono-label mb-1">{t.problem}</p>
+          <p className="text-sm text-muted-foreground leading-relaxed">{project.problem[language]}</p>
+        </div>
+        <div>
+          <p className="mono-label mb-1">{t.solution}</p>
+          <p className="text-sm text-muted-foreground leading-relaxed">{project.solution[language]}</p>
+        </div>
+        <div>
+          <p className="mono-label mb-1">{t.architecture}</p>
+          <p className="text-sm font-mono text-primary/80 leading-relaxed">{project.architecture[language]}</p>
+        </div>
+      </div>
 
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 pt-4 border-t border-border">
         {project.tags.map(tag => (
-          <span key={tag} className="text-[11px] tracking-wider uppercase text-muted-foreground border border-border px-3 py-1 rounded-full">
+          <span key={tag} className="text-[11px] font-mono tracking-wider text-muted-foreground border border-border px-2.5 py-1 rounded-md">
             {tag}
           </span>
         ))}
@@ -74,10 +81,10 @@ const Projects = () => {
         </SectionReveal>
 
         <SectionReveal delay={0.1}>
-          <h2 className="heading-section mb-16">{t.title}</h2>
+          <h2 className="heading-section mb-12">{t.title}</h2>
         </SectionReveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {featured.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} />
           ))}

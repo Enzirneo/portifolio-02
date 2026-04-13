@@ -27,7 +27,7 @@ const Contact = () => {
           <SectionReveal delay={0.3}>
             <a
               href="mailto:hello@example.com"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground text-sm font-medium tracking-wide transition-all duration-300 hover:opacity-90 mb-8"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-primary text-primary-foreground text-sm font-medium tracking-wide rounded-md transition-all duration-300 hover:opacity-90 mb-8"
             >
               <Mail className="w-4 h-4" />
               {t.email}
@@ -36,24 +36,24 @@ const Contact = () => {
 
           <SectionReveal delay={0.4}>
             <p className="text-sm text-muted-foreground mb-4">{t.or}</p>
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 border border-border text-muted-foreground hover:text-foreground hover:border-primary transition-all duration-300"
+                className="p-2.5 border border-border text-muted-foreground hover:text-foreground hover:border-primary rounded-md transition-all duration-300"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="w-4 h-4" />
               </a>
               <a
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 border border-border text-muted-foreground hover:text-foreground hover:border-primary transition-all duration-300"
+                className="p-2.5 border border-border text-muted-foreground hover:text-foreground hover:border-primary rounded-md transition-all duration-300"
                 aria-label="GitHub"
               >
-                <Github className="w-5 h-5" />
+                <Github className="w-4 h-4" />
               </a>
             </div>
           </SectionReveal>
