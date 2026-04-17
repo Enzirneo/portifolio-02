@@ -115,10 +115,10 @@ export async function generateMetadata(): Promise<Metadata> {
     authors: [{ name: "Enzo Bispo", url: "https://portifolio-enzo-bispo.vercel.app" }],
     creator: "Enzo Bispo",
     icons: {
-      icon: [{ url: "/tech-favicon.svg", type: "image/svg+xml" }],
-      shortcut: ["/tech-favicon.svg"],
-      apple: ["/tech-favicon.svg"],
-    },
+        icon: [{ url: "/enzo-bispo.svg", type: "image/svg+xml" }],
+        shortcut: ["/enzo-bispo.svg"],
+        apple: ["/enzo-bispo.svg"],
+      },
     openGraph: {
       title: metadataCopy.titleDefault,
       description: metadataCopy.description,
