@@ -46,13 +46,13 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="relative z-0 overflow-hidden bg-[#050D22] px-4 py-24 text-white sm:px-6 sm:py-28 lg:py-32"
+      className="relative z-0 overflow-hidden bg-[#041712] px-4 py-24 text-white sm:px-6 sm:py-28 lg:py-32"
     >
       <div className="pointer-events-none absolute inset-0 opacity-[0.55] [background-image:radial-gradient(circle_at_3%_18%,rgba(255,255,255,0.9)_1.2px,transparent_1.8px),radial-gradient(circle_at_8%_72%,rgba(255,255,255,0.55)_0.9px,transparent_1.6px),radial-gradient(circle_at_15%_34%,rgba(255,255,255,0.75)_1px,transparent_1.7px),radial-gradient(circle_at_22%_81%,rgba(255,255,255,0.7)_1.3px,transparent_1.9px),radial-gradient(circle_at_28%_16%,rgba(255,255,255,0.45)_0.8px,transparent_1.5px),radial-gradient(circle_at_35%_58%,rgba(255,255,255,0.85)_1.1px,transparent_1.8px),radial-gradient(circle_at_41%_22%,rgba(255,255,255,0.52)_0.9px,transparent_1.6px),radial-gradient(circle_at_49%_76%,rgba(255,255,255,0.82)_1.2px,transparent_1.9px),radial-gradient(circle_at_57%_12%,rgba(255,255,255,0.42)_0.8px,transparent_1.4px),radial-gradient(circle_at_63%_46%,rgba(255,255,255,0.8)_1.2px,transparent_1.8px),radial-gradient(circle_at_71%_84%,rgba(255,255,255,0.65)_1px,transparent_1.7px),radial-gradient(circle_at_79%_28%,rgba(255,255,255,0.9)_1.3px,transparent_2px),radial-gradient(circle_at_86%_63%,rgba(255,255,255,0.46)_0.8px,transparent_1.4px),radial-gradient(circle_at_92%_20%,rgba(255,255,255,0.7)_1px,transparent_1.7px),radial-gradient(circle_at_97%_78%,rgba(255,255,255,0.84)_1.2px,transparent_1.9px)]" />
       <div className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:radial-gradient(circle_at_20%_22%,rgba(255,255,255,0.95)_0.8px,transparent_1.2px),radial-gradient(circle_at_72%_34%,rgba(255,255,255,0.9)_1px,transparent_1.4px),radial-gradient(circle_at_42%_70%,rgba(255,255,255,0.9)_0.8px,transparent_1.2px),radial-gradient(circle_at_86%_78%,rgba(255,255,255,0.95)_1px,transparent_1.4px)]" />
 
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[linear-gradient(180deg,rgba(0,0,0,0.72)_0%,rgba(0,0,0,0.42)_22%,rgba(11,18,32,0.16)_60%,rgba(13,23,48,0)_100%)]" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-[linear-gradient(0deg,rgba(0,0,0,0.72)_0%,rgba(0,0,0,0.42)_22%,rgba(11,18,32,0.16)_60%,rgba(13,23,48,0)_100%)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[linear-gradient(180deg,rgba(0,0,0,0.72)_0%,rgba(0,0,0,0.42)_22%,rgba(7,24,19,0.18)_60%,rgba(7,24,19,0)_100%)]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-[linear-gradient(0deg,rgba(0,0,0,0.72)_0%,rgba(0,0,0,0.42)_22%,rgba(7,24,19,0.18)_60%,rgba(7,24,19,0)_100%)]" />
 
       <div className="mx-auto max-w-7xl space-y-6 sm:space-y-8">
         <h2 className="sr-only">{copy.about.srOnly}</h2>
@@ -65,7 +65,7 @@ export function AboutSection() {
               className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
               style={{
                 background:
-                  "radial-gradient(260px circle at 50% 40%, rgba(46,179,212,0.14), rgba(94,61,180,0.08) 38%, rgba(8,10,15,0) 68%), linear-gradient(135deg, rgba(46,179,212,0.08) 0%, rgba(15,15,18,0) 45%, rgba(94,61,180,0.08) 100%)",
+                  "radial-gradient(260px circle at 50% 40%, rgba(34,197,94,0.14), rgba(16,185,129,0.08) 38%, rgba(8,10,15,0) 68%), linear-gradient(135deg, rgba(34,197,94,0.08) 0%, rgba(15,15,18,0) 45%, rgba(16,185,129,0.08) 100%)",
               }}
             />
 
@@ -123,7 +123,7 @@ export function AboutSection() {
               className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
               style={{
                 background:
-                  "radial-gradient(260px circle at 50% 40%, rgba(46,179,212,0.14), rgba(94,61,180,0.08) 38%, rgba(8,10,15,0) 68%), linear-gradient(135deg, rgba(46,179,212,0.08) 0%, rgba(15,15,18,0) 45%, rgba(94,61,180,0.08) 100%)",
+                  "radial-gradient(260px circle at 50% 40%, rgba(34,197,94,0.14), rgba(16,185,129,0.08) 38%, rgba(8,10,15,0) 68%), linear-gradient(135deg, rgba(34,197,94,0.08) 0%, rgba(15,15,18,0) 45%, rgba(16,185,129,0.08) 100%)",
               }}
             />
 
@@ -136,7 +136,7 @@ export function AboutSection() {
                 {copy.about.whoParagraph1.prefix}
                 <a
                   href="#projects"
-                  className="text-white underline decoration-orange-500 underline-offset-4 transition-all hover:text-orange-300 hover:decoration-orange-400"
+                  className="text-white underline decoration-green-500 underline-offset-4 transition-all hover:text-green-300 hover:decoration-green-400"
                 >
                   {copy.about.whoParagraph1.linkBuildTools}
                 </a>
@@ -170,7 +170,7 @@ export function AboutSection() {
                   href="https://www.typescriptlang.org"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-white underline decoration-blue-500 underline-offset-4 transition-all hover:text-blue-300 hover:decoration-blue-400"
+                  className="font-medium text-white underline decoration-emerald-500 underline-offset-4 transition-all hover:text-emerald-300 hover:decoration-emerald-400"
                 >
                   {copy.about.whoParagraph2.linkTypescript}
                 </a>
@@ -179,7 +179,7 @@ export function AboutSection() {
                   href="https://tailwindcss.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-white underline decoration-cyan-500 underline-offset-4 transition-all hover:text-cyan-300 hover:decoration-cyan-400"
+                  className="font-medium text-white underline decoration-teal-500 underline-offset-4 transition-all hover:text-teal-300 hover:decoration-teal-400"
                 >
                   {copy.about.whoParagraph2.linkTailwind}
                 </a>
@@ -197,9 +197,9 @@ export function AboutSection() {
           </div>
 
           <div
-            className={`relative flex min-h-56 cursor-default flex-col justify-center gap-5 overflow-hidden rounded-3xl border border-white/10 bg-[linear-gradient(135deg,rgba(9,13,20,0.98)_0%,rgba(10,15,23,0.96)_52%,rgba(18,14,34,0.94)_100%)] p-5 md:col-span-2 md:min-h-62.5 md:p-8 ${cardHoverGlobal}`}
+            className={`relative flex min-h-56 cursor-default flex-col justify-center gap-5 overflow-hidden rounded-3xl border border-white/10 bg-[linear-gradient(135deg,rgba(9,13,20,0.98)_0%,rgba(10,15,23,0.96)_52%,rgba(10,28,22,0.94)_100%)] p-5 md:col-span-2 md:min-h-62.5 md:p-8 ${cardHoverGlobal}`}
           >
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(98,196,255,0.12),transparent_30%),radial-gradient(circle_at_24%_38%,rgba(139,92,246,0.08),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(42,189,167,0.08),transparent_34%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.12),transparent_30%),radial-gradient(circle_at_24%_38%,rgba(16,185,129,0.08),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(5,150,105,0.08),transparent_34%)]" />
             <div className="pointer-events-none absolute inset-0 opacity-[0.18] bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[28px_28px]" />
 
             <div className="z-10 w-full space-y-4">
@@ -231,7 +231,7 @@ export function AboutSection() {
 
               <div className="flex items-center gap-4 pt-2">
                 <div className="flex items-center gap-2 rounded-full border border-white/5 bg-white/10 px-3 py-1 text-xs font-bold text-white">
-                  <FiClock className="text-orange-500" />
+                  <FiClock className="text-green-400" />
                   <span>{copy.about.globalBadge}</span>
                 </div>
               </div>
@@ -241,7 +241,7 @@ export function AboutSection() {
           <div
             className={`relative min-h-72 overflow-hidden rounded-3xl border border-white/10 bg-[rgba(8,11,17,0.96)] md:col-span-1 md:min-h-87 ${cardHoverGlobal}`}
           >
-            <div className="absolute inset-0 bg-[radial-gradient(78%_58%_at_50%_4%,rgba(235,246,255,0.13),rgba(4,5,7,0)_62%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(78%_58%_at_50%_4%,rgba(220,252,231,0.12),rgba(4,5,7,0)_62%)]" />
 
             <div className="absolute left-5 top-5 z-20 inline-flex items-center gap-2 text-base font-semibold text-white/90">
               <FiMapPin className="h-4 w-4 text-white/90" />
@@ -269,7 +269,7 @@ export function AboutSection() {
               />
             </div>
 
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-linear-to-t from-[#040507] to-transparent">
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-linear-to-t from-[#020a08] to-transparent">
               <div className="absolute inset-x-0 bottom-4 text-center text-[9px] font-mono uppercase tracking-[0.18em] text-white/35">
                 {language === "pt-BR"
                   ? "arraste para os lados"
