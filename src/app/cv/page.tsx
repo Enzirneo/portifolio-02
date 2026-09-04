@@ -139,7 +139,7 @@ function getSkillIcon(skill: string): LucideIcon {
 export default function CvPage() {
   const { language } = useTranslations();
   const content = cvContent[language as Language];
-  const resumeHref = "/cv/Currículo Enzo Bispo.pdf";
+  const resumeHref = "/cv/curriculo-enzo-bispo.pdf";
   const resumeDownloadName =
     language === "pt-BR" ? "Enzo-Bispo-Curriculo.pdf" : "Enzo-Bispo-Resume.pdf";
   const atsHref = `/cv/ats?lang=${encodeURIComponent(language)}`;
@@ -368,7 +368,6 @@ export default function CvPage() {
                   <div className="grid grid-cols-2 gap-3">
                     <a
                       href={resumeHref}
-                      aria-disabled="true"
                       download={resumeDownloadName}
                       className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-[#2f6b57] px-4 py-3 text-sm font-semibold text-white text-center transition-[transform,background-color,border-color] hover:-translate-y-0.5 hover:bg-[#3b7d66]"
                     >
