@@ -9,7 +9,7 @@ WORKDIR /app
 # ---- Dependencies ----
 FROM base AS deps
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN --mount=type=cache,target=/root/.npm npm ci --no-audit --no-fund --prefer-offline --foreground-scripts
 
 # ---- Builder ----
 FROM base AS builder

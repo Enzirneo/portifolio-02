@@ -329,7 +329,7 @@ export default function CvPage() {
                   </a>
 
                   <a
-                    href="tel:+5551991288418"
+                    href="tel:+5521999491122"
                     className="flex items-center gap-3 rounded-2xl border border-black/12 bg-[#f8f4ef] px-4 py-3 text-sm text-[#161616]/86 transition-colors hover:bg-white/8"
                   >
                     <Phone className="h-4 w-4 text-[#5e786d]" />
