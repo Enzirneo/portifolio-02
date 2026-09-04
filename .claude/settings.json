@@ -1,0 +1,33 @@
+{
+  "$comment": "Governanca do fluxo Gitflow + Clean Code deste portfolio. CLAUDE.md e .claude/rules/*.md sao instrucao para o modelo; o hook abaixo roda FORA do modelo e pode BLOQUEAR a acao (exit 2). Excecao pontual: token de arquivo de uso unico com validade -- node .claude/hooks/gitflow-bypass.js \"<motivo>\"; confirmar com o usuario antes. O enforcement de TDD vem DESLIGADO (este projeto e quase todo UI); os hooks pre-edit-tdd.js / post-edit-verify.js estao no repo prontos para um projeto com mais logica -- ver .claude/rules/tdd.md secao \"Como ativar\".",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "$comment": "Gitflow: bloqueia `git commit` em master/homolog/develop, criacao de branch fora de tipo/<descricao-kebab>, e PR de feature com base master/homolog.",
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "node \".claude/hooks/pre-bash-gitflow.js\"" }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "$comment": "Se houve acao sob bypass de Gitflow nesta sessao, ou ainda ha token .claude/*-bypass.json no disco, emite um aviso. Nao bloqueia.",
+        "hooks": [
+          { "type": "command", "command": "node \".claude/hooks/stop-bypass-audit.js\"" }
+        ]
+      }
+    ],
+    "$disabled_tdd": {
+      "$comment": "Cole estes dois blocos em PreToolUse e PostToolUse para ligar o TDD. Ver .claude/rules/tdd.md.",
+      "PreToolUse": {
+        "matcher": "Edit|Write",
+        "hooks": [{ "type": "command", "command": "node \".claude/hooks/pre-edit-tdd.js\"" }]
+      },
+      "PostToolUse": {
+        "matcher": "Edit|Write",
+        "hooks": [{ "type": "command", "command": "node \".claude/hooks/post-edit-verify.js\"" }]
+      }
+    }
+  }
+}

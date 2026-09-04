@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# claude governance — estado local dos hooks (nao versionar)
+.claude/tdd-state.json
+.claude/bypass-audit.json
+.claude/*-bypass.json
+.claude/settings.local.json
