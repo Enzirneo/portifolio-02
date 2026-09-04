@@ -112,30 +112,28 @@ export function Navbar() {
   const openMenuLabel = language === "pt-BR" ? "Abrir menu" : "Open menu";
   const closeMenuLabel = language === "pt-BR" ? "Fechar menu" : "Close menu";
 
-  const reliefBase =
-    "relative inline-flex shrink-0 items-center gap-1.5 rounded-full whitespace-nowrap font-semibold outline-none " +
-    "transition-[transform,box-shadow,border-color,color,background-color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]";
+  const neuBase =
+    "relative inline-flex shrink-0 items-center justify-center gap-1.5 rounded-full font-semibold outline-none " +
+    "transition-[transform,box-shadow,color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]";
 
-  // Cream com relevo suave (borda + brilho interno + sombra baixa), hover no verde.
-  const reliefGhost =
-    `${reliefBase} border border-black/10 bg-[linear-gradient(180deg,#ffffff,#f2ece2)] text-[#161616] ` +
-    "shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_2px_5px_rgba(15,23,42,0.06),0_8px_18px_rgba(15,23,42,0.07)] " +
-    "hover:-translate-y-0.5 hover:border-[#2f6b57]/45 hover:text-[#2f6b57] " +
-    "hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_3px_7px_rgba(47,107,87,0.14),0_11px_24px_rgba(47,107,87,0.16)] " +
-    "focus-visible:border-[#2f6b57]/55 focus-visible:text-[#2f6b57] " +
-    "active:translate-y-0 active:shadow-[inset_0_2px_5px_rgba(15,23,42,0.14)]";
+  // Neumorfismo cream: luz de cima-esquerda (branco quente) + sombra em baixo-direita (taupe),
+  // dentro e fora do botao. Hover intensifica; active afunda.
+  const neuRaised =
+    `${neuBase} bg-[#f1ebe0] text-[#575047] ` +
+    "shadow-[-5px_-5px_11px_rgba(255,255,255,0.9),5px_5px_13px_rgba(168,154,132,0.36)] " +
+    "hover:text-[#2f6b57] hover:shadow-[-6px_-6px_13px_rgba(255,255,255,0.95),6px_6px_16px_rgba(168,154,132,0.44)] " +
+    "focus-visible:text-[#2f6b57] " +
+    "active:text-[#2f6b57] active:scale-[0.97] active:shadow-[inset_-4px_-4px_9px_rgba(255,255,255,0.9),inset_4px_4px_10px_rgba(168,154,132,0.42)]";
 
-  // Verde sólido com o mesmo relevo (CV quando já está na página /cv).
-  const reliefSolid =
-    `${reliefBase} border border-[#295c4c] bg-[linear-gradient(180deg,#3c7f68,#2f6b57)] text-white ` +
-    "shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_3px_8px_rgba(47,107,87,0.28),0_11px_24px_rgba(47,107,87,0.3)] " +
-    "hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_4px_10px_rgba(47,107,87,0.34),0_13px_28px_rgba(47,107,87,0.34)] " +
-    "active:translate-y-0 active:shadow-[inset_0_2px_6px_rgba(0,0,0,0.22)]";
+  // Afundado (CV quando ja esta em /cv).
+  const neuPressed =
+    `${neuBase} bg-[#edefe9] text-[#2f6b57] scale-[0.985] ` +
+    "shadow-[inset_-4px_-4px_9px_rgba(255,255,255,0.85),inset_4px_4px_10px_rgba(168,154,132,0.42)]";
 
   const cvClass = (mobile: boolean) =>
-    `${isCvPage ? reliefSolid : reliefGhost} ${mobile ? "px-3.5 py-2 text-sm" : "px-4 py-2.5 text-sm"}`;
+    `${isCvPage ? neuPressed : neuRaised} ${mobile ? "h-10 w-10" : "h-10 w-10 sm:h-11 sm:w-11"}`;
   const langClass = (mobile: boolean) =>
-    `${reliefGhost} ${mobile ? "px-3 py-2 text-sm" : "px-3.5 py-2.5 text-sm"}`;
+    `${neuRaised} ${mobile ? "px-3.5 py-2 text-sm" : "px-4 py-2.5 text-sm"}`;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-70">
@@ -214,10 +212,11 @@ export function Navbar() {
                 <Link
                   href="/cv"
                   onClick={() => setIsMobileMenuOpen(false)}
+                  aria-label={copy.nav.cv}
+                  title={copy.nav.cv}
                   className={cvClass(false)}
                 >
-                  <FileText className="h-3.5 w-3.5 opacity-80" />
-                  {copy.nav.cv}
+                  <FileText className="h-4 w-4" />
                 </Link>
 
                 <button
@@ -262,10 +261,11 @@ export function Navbar() {
               <Link
                 href="/cv"
                 onClick={() => setIsMobileMenuOpen(false)}
+                aria-label={copy.nav.cv}
+                title={copy.nav.cv}
                 className={cvClass(true)}
               >
-                <FileText className="h-3.5 w-3.5 opacity-80" />
-                {copy.nav.cv}
+                <FileText className="h-4 w-4" />
               </Link>
 
               <button
