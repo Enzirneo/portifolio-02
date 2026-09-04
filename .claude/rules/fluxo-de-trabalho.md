@@ -47,8 +47,9 @@ objetivo e conversa nos momentos que importam, nao travar o ritmo o tempo todo.
 ## Padrao de trabalho das conversas
 
 - Toda mudanca de codigo entra pelo fluxo Gitflow (@.claude/rules/gitflow.md):
-  branch de trabalho a partir de `develop`, commits Conventional, PR para
-  `develop`. Nunca commitar direto em `master`/`homolog`/`develop`.
+  branch de trabalho a partir de `develop`, commits Conventional, merge direto em
+  `develop` (sem PR). `develop`→`homolog`→`master` por PR. Nunca commitar direto
+  em `master`/`homolog`/`develop`.
 - Clean Code (@.claude/rules/clean-code.md) vale para todo arquivo tocado —
   Regra do Escoteiro inclusa.
 - TDD (@.claude/rules/tdd.md) esta desligado por padrao aqui; se a tarefa trouxer
