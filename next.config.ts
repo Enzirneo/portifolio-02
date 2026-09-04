@@ -7,12 +7,12 @@ const contentSecurityPolicy = [
   "base-uri 'self'",
   "frame-ancestors 'none'",
   "object-src 'none'",
-  "form-action 'self' https://formspree.io",
+  "form-action 'self'",
   "img-src 'self' data: blob: https:",
-  "font-src 'self' data: https://use.typekit.net https://p.typekit.net",
-  "style-src 'self' 'unsafe-inline' https://use.typekit.net",
+  "font-src 'self' data:",
+  "style-src 'self' 'unsafe-inline'",
   `script-src 'self' 'unsafe-inline'${isProduction ? "" : " 'unsafe-eval'"} https://va.vercel-scripts.com`,
-  `connect-src 'self' https://formspree.io https://vitals.vercel-insights.com https://github-contributions-api.jogruber.de${isProduction ? "" : " ws: http:"}`,
+  `connect-src 'self' https://vitals.vercel-insights.com https://github-contributions-api.jogruber.de${isProduction ? "" : " ws: http:"}`,
   "manifest-src 'self'",
   ...(isProduction ? ["upgrade-insecure-requests"] : []),
 ].join("; ");
@@ -49,6 +49,7 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   images: {
     qualities: [75, 100],
     dangerouslyAllowSVG: true,
