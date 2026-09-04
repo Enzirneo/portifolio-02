@@ -1,13 +1,14 @@
+import { cache } from "react";
 import type { Metadata } from "next";
 import { cookies, headers } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
-import ClientLayout from "@/shared/components/layout/ClientLayout";
 import ConsoleEasterEgg from "@/shared/components/layout/ConsoleEasterEgg";
-import { AnimatedBackground, SmoothScroll } from "@/shared/components/layout";
+import { SmoothScroll } from "@/shared/components/layout";
 import { LanguageProvider } from "@/shared/i18n/LanguageProvider";
+import { SITE_URL } from "@/shared/lib/site";
 import {
   defaultLanguage,
   getLanguageFromAcceptLanguage,
@@ -87,7 +88,7 @@ const metadataByLanguage: Record<
   },
 };
 
-async function resolveRequestLanguage(): Promise<Language> {
+const resolveRequestLanguage = cache(async function resolveRequestLanguage(): Promise<Language> {
   const cookieStore = await cookies();
   const storedLanguage = cookieStore.get(LANGUAGE_COOKIE_KEY)?.value;
 
@@ -98,21 +99,21 @@ async function resolveRequestLanguage(): Promise<Language> {
   const headerStore = await headers();
   const acceptLanguage = headerStore.get("accept-language");
   return getLanguageFromAcceptLanguage(acceptLanguage) ?? defaultLanguage;
-}
+});
 
 export async function generateMetadata(): Promise<Metadata> {
   const language = await resolveRequestLanguage();
   const metadataCopy = metadataByLanguage[language];
 
   return {
-    metadataBase: new URL("https://portifolio-enzo-bispo.vercel.app"),
+    metadataBase: new URL(SITE_URL),
     title: {
       default: metadataCopy.titleDefault,
       template: metadataCopy.titleTemplate,
     },
     description: metadataCopy.description,
     keywords: metadataCopy.keywords,
-    authors: [{ name: "Enzo Bispo", url: "https://portifolio-enzo-bispo.vercel.app" }],
+    authors: [{ name: "Enzo Bispo", url: SITE_URL }],
     creator: "Enzo Bispo",
     icons: {
         icon: [{ url: "/enzo-bispo.svg", type: "image/svg+xml" }],
@@ -122,24 +123,15 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: metadataCopy.titleDefault,
       description: metadataCopy.description,
-      url: "https://portifolio-enzo-bispo.vercel.app",
+      url: SITE_URL,
       siteName: metadataCopy.siteName,
       locale: metadataCopy.openGraphLocale,
       type: "website",
-      images: [
-        {
-          url: "/og-image.png",
-          width: 1200,
-          height: 630,
-          alt: "Enzo Bispo - Full Stack Developer",
-        },
-      ],
     },
     twitter: {
       card: "summary_large_image",
       title: metadataCopy.twitterTitle,
       description: metadataCopy.description,
-      images: ["/og-image.png"],
     },
     robots: {
       index: true,
@@ -166,7 +158,7 @@ export default async function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Enzo Villela Bispo",
-    url: "https://portifolio-enzo-bispo.vercel.app",
+    url: SITE_URL,
     sameAs: [
       "https://github.com/Enzirneo",
       "https://www.instagram.com/enzirneo/",
@@ -186,22 +178,19 @@ export default async function RootLayout({
   };
 
   return (
-    <html lang={language} style={{ filter: "invert(0)" }} suppressHydrationWarning>
+    <html lang={language} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${lustDidone.variable} antialiased bg-transparent text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} ${lustDidone.variable} antialiased bg-[#f7f3ee] text-[#161616]`}
       >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <LanguageProvider initialLanguage={language}>
-          <ClientLayout>
-            <ConsoleEasterEgg />
-            <SmoothScroll />
-            <AnimatedBackground />
-            {children}
-            <Analytics />
-          </ClientLayout>
+          <ConsoleEasterEgg />
+          <SmoothScroll />
+          {children}
+          <Analytics />
         </LanguageProvider>
       </body>
     </html>
