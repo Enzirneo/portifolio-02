@@ -227,7 +227,7 @@ export function HeroSection() {
               e.preventDefault();
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="inline-flex w-full items-center justify-center rounded-full bg-black px-6 py-3 text-base font-bold text-white shadow-lg shadow-black/20 transition-all hover:bg-gray-800 sm:w-auto sm:px-8 sm:py-4 sm:text-lg"
+            className="inline-flex w-full items-center justify-center rounded-full bg-[#2f6b57] px-6 py-3 text-base font-bold text-white shadow-lg shadow-[#2f6b57]/25 transition-all hover:-translate-y-1 hover:bg-[#356f5c] hover:shadow-[#2f6b57]/35 sm:w-auto sm:px-8 sm:py-4 sm:text-lg"
           >
             {copy.hero.ctaPrimary}
           </a>
@@ -237,7 +237,7 @@ export function HeroSection() {
               e.preventDefault();
               document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-black/10 bg-black/5 px-6 py-3 text-base font-bold text-black transition-all hover:-translate-y-1 hover:border-black/20 hover:bg-black/10 sm:w-auto sm:px-8 sm:text-lg"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#2f6b57]/25 bg-[#2f6b57]/8 px-6 py-3 text-base font-bold text-[#2f6b57] transition-all hover:-translate-y-1 hover:border-[#2f6b57]/45 hover:bg-[#2f6b57]/14 sm:w-auto sm:px-8 sm:text-lg"
           >
             {copy.hero.ctaSecondary}
           </a>
