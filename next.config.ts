@@ -49,7 +49,9 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  output: "standalone",
+  // 'standalone' e so para a imagem Docker. Na Vercel isso quebra o trace de
+  // arquivos do build (.next/*.nft.json); a Vercel usa o proprio pipeline.
+  output: process.env.VERCEL ? undefined : "standalone",
   images: {
     qualities: [75, 100],
     dangerouslyAllowSVG: true,
