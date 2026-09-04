@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { FileText, ArrowLeftRight } from "lucide-react";
 import { useTranslations } from "@/shared/i18n/LanguageProvider";
 
 const navItems = [
@@ -111,30 +112,30 @@ export function Navbar() {
   const openMenuLabel = language === "pt-BR" ? "Abrir menu" : "Open menu";
   const closeMenuLabel = language === "pt-BR" ? "Fechar menu" : "Close menu";
 
-  const pillBase =
-    "relative shrink-0 rounded-full whitespace-nowrap font-semibold outline-none " +
-    "transition-[transform,background-color,border-color,box-shadow,color] duration-300 " +
-    "ease-[cubic-bezier(0.22,1,0.36,1)]";
+  const reliefBase =
+    "relative inline-flex shrink-0 items-center gap-1.5 rounded-full whitespace-nowrap font-semibold outline-none " +
+    "transition-[transform,box-shadow,border-color,color,background-color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]";
 
-  // Botao neutro (cream + borda sutil, hover no verde da marca)
-  const ghostPill =
-    `${pillBase} border border-black/10 bg-[#fcfaf7] text-[#161616]/72 ` +
-    "hover:-translate-y-0.5 hover:border-[#2f6b57]/40 hover:text-[#2f6b57] " +
-    "hover:shadow-[0_0_0_1px_rgba(47,107,87,0.12)] " +
-    "focus-visible:border-[#2f6b57]/50 focus-visible:text-[#2f6b57] active:scale-[0.97]";
+  // Cream com relevo suave (borda + brilho interno + sombra baixa), hover no verde.
+  const reliefGhost =
+    `${reliefBase} border border-black/10 bg-[linear-gradient(180deg,#ffffff,#f2ece2)] text-[#161616] ` +
+    "shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_2px_5px_rgba(15,23,42,0.06),0_8px_18px_rgba(15,23,42,0.07)] " +
+    "hover:-translate-y-0.5 hover:border-[#2f6b57]/45 hover:text-[#2f6b57] " +
+    "hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_3px_7px_rgba(47,107,87,0.14),0_11px_24px_rgba(47,107,87,0.16)] " +
+    "focus-visible:border-[#2f6b57]/55 focus-visible:text-[#2f6b57] " +
+    "active:translate-y-0 active:shadow-[inset_0_2px_5px_rgba(15,23,42,0.14)]";
 
-  // Botao verde solido (CV, ou CTA)
-  const solidPill =
-    `${pillBase} border border-transparent bg-[#2f6b57] text-white ` +
-    "shadow-[0_10px_24px_rgba(47,107,87,0.22)] hover:-translate-y-0.5 hover:bg-[#356f5c] " +
-    "hover:shadow-[0_12px_28px_rgba(47,107,87,0.28)] active:scale-[0.97]";
+  // Verde sólido com o mesmo relevo (CV quando já está na página /cv).
+  const reliefSolid =
+    `${reliefBase} border border-[#295c4c] bg-[linear-gradient(180deg,#3c7f68,#2f6b57)] text-white ` +
+    "shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_3px_8px_rgba(47,107,87,0.28),0_11px_24px_rgba(47,107,87,0.3)] " +
+    "hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_4px_10px_rgba(47,107,87,0.34),0_13px_28px_rgba(47,107,87,0.34)] " +
+    "active:translate-y-0 active:shadow-[inset_0_2px_6px_rgba(0,0,0,0.22)]";
 
-  const cvClass = (mobile: boolean) => {
-    const size = mobile ? "px-4 py-2 text-sm" : "px-5 py-2.5 text-sm";
-    return `${isCvPage ? solidPill : ghostPill} ${size} ${isCvPage ? "" : "text-[#161616]"}`;
-  };
+  const cvClass = (mobile: boolean) =>
+    `${isCvPage ? reliefSolid : reliefGhost} ${mobile ? "px-3.5 py-2 text-sm" : "px-4 py-2.5 text-sm"}`;
   const langClass = (mobile: boolean) =>
-    `${ghostPill} ${mobile ? "px-4 py-2 text-sm" : "px-4 py-2.5 text-sm"}`;
+    `${reliefGhost} ${mobile ? "px-3 py-2 text-sm" : "px-3.5 py-2.5 text-sm"}`;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-70">
@@ -215,6 +216,7 @@ export function Navbar() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={cvClass(false)}
                 >
+                  <FileText className="h-3.5 w-3.5 opacity-80" />
                   {copy.nav.cv}
                 </Link>
 
@@ -225,6 +227,7 @@ export function Navbar() {
                   title={copy.nav.languageToggle}
                   className={langClass(false)}
                 >
+                  <ArrowLeftRight className="h-3.5 w-3.5 opacity-70" />
                   {language === "pt-BR" ? "EN" : "PT"}
                 </button>
               </div>
@@ -261,6 +264,7 @@ export function Navbar() {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={cvClass(true)}
               >
+                <FileText className="h-3.5 w-3.5 opacity-80" />
                 {copy.nav.cv}
               </Link>
 
@@ -271,6 +275,7 @@ export function Navbar() {
                 title={copy.nav.languageToggle}
                 className={langClass(true)}
               >
+                <ArrowLeftRight className="h-3.5 w-3.5 opacity-70" />
                 {language === "pt-BR" ? "EN" : "PT"}
               </button>
             </div>
