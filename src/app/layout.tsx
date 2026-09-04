@@ -180,7 +180,7 @@ export default async function RootLayout({
   return (
     <html lang={language} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${lustDidone.variable} antialiased bg-[#f7f3ee] text-[#161616]`}
+        className={`${geistSans.variable} ${geistMono.variable} ${lustDidone.variable} antialiased bg-[#f1eadb] text-[#161616]`}
       >
         <script
           type="application/ld+json"

@@ -245,7 +245,7 @@ export function Navbar() {
           type="button"
           aria-label={closeMenuLabel}
           onClick={() => setIsMobileMenuOpen(false)}
-          className={`pointer-events-auto absolute inset-x-0 bottom-0 top-[4.9rem] bg-[rgba(247,243,238,0.62)] backdrop-blur-[6px] transition-opacity duration-500 ${
+          className={`pointer-events-auto absolute inset-x-0 bottom-0 top-[4.9rem] bg-[rgba(241,234,219,0.62)] backdrop-blur-[6px] transition-opacity duration-500 ${
             isMobileMenuOpen ? "opacity-100" : "opacity-0"
           }`}
         />

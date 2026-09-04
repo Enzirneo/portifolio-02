@@ -149,7 +149,7 @@ export default function CvPage() {
       : "Rio de Janeiro, Rio de Janeiro, Brazil";
 
   return (
-    <div className="min-h-screen bg-[#f7f3ee] font-(family-name:--font-geist-sans)">
+    <div className="min-h-screen bg-[#f1eadb] font-(family-name:--font-geist-sans)">
       <Navbar />
 
       <main className="relative z-10 overflow-hidden px-4 pb-20 pt-28 text-[#171717] sm:px-6 sm:pb-24 sm:pt-32">
@@ -157,7 +157,7 @@ export default function CvPage() {
         <div className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.9),transparent_68%)]" />
         <div className="pointer-events-none absolute bottom-0 left-[-12%] h-96 w-96 rounded-full bg-white/70 blur-[110px]" />
         <div className="pointer-events-none absolute right-[-10%] top-[22%] h-88 w-88 rounded-full bg-stone-200/60 blur-[120px]" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-[linear-gradient(180deg,rgba(247,243,238,0)_0%,rgba(247,243,238,0.92)_100%)]" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-[linear-gradient(180deg,rgba(241,234,219,0)_0%,rgba(241,234,219,0.92)_100%)]" />
 
         <div className="relative mx-auto max-w-6xl">
           <section>
