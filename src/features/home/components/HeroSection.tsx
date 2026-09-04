@@ -168,10 +168,10 @@ export function HeroSection() {
     <section
       id="hero"
       ref={containerRef}
-      className="relative z-10 flex min-h-[100svh] items-center justify-center overflow-visible bg-[#f7f3ee] px-4 pt-20 sm:min-h-dvh sm:px-6 sm:pt-24"
+      className="relative z-10 flex min-h-[100svh] items-center justify-center overflow-visible bg-[#f1eadb] px-4 pt-20 sm:min-h-dvh sm:px-6 sm:pt-24"
     >
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(15,23,42,0.055)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.055)_1px,transparent_1px)] bg-size-[16px_16px]" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 sm:hidden bg-[linear-gradient(180deg,rgba(247,243,238,0)_0%,rgba(247,243,238,0.12)_58%,rgba(247,243,238,0.28)_100%)]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 sm:hidden bg-[linear-gradient(180deg,rgba(241,234,219,0)_0%,rgba(241,234,219,0.12)_58%,rgba(241,234,219,0.28)_100%)]" />
       <div className="max-w-6xl mx-auto w-full relative z-10 flex flex-col items-center text-center">
         <button
           ref={badgeRef}

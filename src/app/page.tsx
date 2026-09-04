@@ -13,7 +13,7 @@ import {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#f5f1eb] text-[#161616] font-(family-name:--font-geist-sans)">
+    <div className="min-h-screen bg-[#f1eadb] text-[#161616] font-(family-name:--font-geist-sans)">
       <Navbar />
       <main className="relative z-10 w-full">
         <HeroSection />

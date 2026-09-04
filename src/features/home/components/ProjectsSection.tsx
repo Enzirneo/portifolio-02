@@ -69,7 +69,7 @@ export function ProjectsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="projects" className="relative bg-[#f7f3ee] px-4 py-24 selection:bg-black/10 sm:py-32">
+    <section ref={sectionRef} id="projects" className="relative bg-[#f1eadb] px-4 py-24 selection:bg-black/10 sm:py-32">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <div ref={titleRef} className="mb-14 text-center sm:mb-24">
