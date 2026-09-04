@@ -80,11 +80,12 @@ export function InteractiveDottedGlobe({
       dark: 1,
       diffuse: 1.05,
       mapSamples,
-      mapBrightness: 8.4,
+      mapBrightness: 6.6,
       mapBaseBrightness: 0.06,
-      baseColor: [0.055, 0.055, 0.06],
+      // tom verde discreto, alinhado a paleta (#2f6b57 / #7fa08f)
+      baseColor: [0.03, 0.1, 0.075],
       markerColor: [1, 1, 1],
-      glowColor: [1, 1, 1],
+      glowColor: [0.45, 0.72, 0.6],
       offset: [0, 0.005],
       scale: 1.02,
       markers: [
