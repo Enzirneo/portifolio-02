@@ -44,24 +44,27 @@ Vale para **toda** tarefa (bug, feature, refactor, ajuste de conteudo):
    - @.claude/rules/fluxo-de-trabalho.md
 3. Trabalhe numa branch `tipo/<descricao-kebab>` a partir de `develop`. **Nunca**
    commite direto em `master`, `homolog` ou `develop`.
-4. `npm run lint` + `npm run build` verdes antes de abrir o PR (base = `develop`).
+4. `npm run lint` + `npm run build` verdes antes de entrar em `develop`.
 
 ## Gitflow (resumo)
 
 ```
-sua-branch  ──▶  develop  ──▶  homolog  ──▶  master (producao / Vercel)
+sua-branch  ──(merge direto)──▶  develop  ──(PR)──▶  homolog  ──(PR)──▶  master (Vercel)
 ```
+
+- **Trabalho → `develop`**: `git merge --no-ff` direto, **sem PR** (repo solo).
+- **`develop` → `homolog` → `master`**: por **PR**, nos marcos de release.
 
 Branches permanentes protegidas por hook: `master`, `homolog`, `develop`.
 Branch de trabalho: `feature|fix|chore|refactor|docs/<descricao-kebab>` (sem ID).
-`hotfix/` sai de `master`. Detalhes: @.claude/rules/gitflow.md.
+`hotfix/` sai de `master` e volta por PR. Detalhes: @.claude/rules/gitflow.md.
 
 ## Enforcement mecanico (hooks)
 
 `.claude/settings.json` liga **um** hook: `pre-bash-gitflow.js` bloqueia (exit 2)
-commit em branch permanente, branch fora do padrao, e PR de feature com base
-`master`/`homolog`. **Ao receber um bloqueio, pare e converse**
-(@.claude/rules/fluxo-de-trabalho.md).
+commit em branch permanente, branch fora do padrao, e PR de promocao fora da
+ordem (`develop`→`homolog`→`master`). O merge para `develop` **nao** e bloqueado.
+**Ao receber um bloqueio, pare e converse** (@.claude/rules/fluxo-de-trabalho.md).
 
 O enforcement de **TDD vem desligado** (projeto quase todo UI). Os hooks
 `pre-edit-tdd.js` / `post-edit-verify.js` estao no repo prontos para ativar num
