@@ -156,31 +156,30 @@ export function SkillsSection() {
             const colors = skillColors[skill.name] || { bg: "bg-gray-800", text: "text-white", color: "#fff" };
             const icon = skillIcons[skill.name] || <span className="font-bold">?</span>;
             
+            const tc = colors.color;
+
             return (
               <div
                 key={skill.name}
-                className="group relative flex cursor-default items-center gap-2 overflow-hidden rounded-full border border-black/8 bg-[#fcfaf7] px-3 py-2 shadow-[0_10px_24px_rgba(15,23,42,0.08)] transition-[transform,border-color,background-color,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.03] hover:border-[#3f7f5f]/35 hover:bg-white hover:shadow-[0_0_0_1px_rgba(63,127,95,0.12),0_12px_28px_rgba(15,23,42,0.08)] sm:gap-2.5 sm:rounded-2xl sm:px-5 sm:py-2.5"
+                className="group relative flex cursor-default items-center gap-2 overflow-hidden rounded-full border border-black/8 bg-[#fcfaf7] px-3 py-2 shadow-[0_10px_24px_rgba(15,23,42,0.08)] transition-[transform,border-color,background-color,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.03] hover:bg-white sm:gap-2.5 sm:rounded-2xl sm:px-5 sm:py-2.5"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
                 <div
                   className="pointer-events-none absolute inset-0 rounded-full sm:rounded-2xl opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
                   style={{
-                    boxShadow:
-                      "inset 0 0 10px rgba(63,127,95,0.10), 0 0 12px rgba(63,127,95,0.08)",
+                    boxShadow: `inset 0 0 0 1px ${tc}40, 0 0 14px ${tc}26, 0 12px 28px rgba(15,23,42,0.08)`,
                   }}
                 />
                 <div
                   className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
                   style={{
-                    background:
-                      "radial-gradient(130% 90% at 8% 2%, rgba(63,127,95,0.12) 0%, rgba(63,127,95,0.04) 36%, rgba(255,255,255,0) 70%), linear-gradient(145deg, rgba(111,183,202,0.06) 0%, rgba(255,255,255,0.1) 52%, rgba(163,108,231,0.04) 100%)",
+                    background: `radial-gradient(130% 90% at 8% 2%, ${tc}26 0%, ${tc}0d 40%, rgba(255,255,255,0) 72%)`,
                   }}
                 />
                 <div
                   className="pointer-events-none absolute bottom-0 left-1/2 h-10 w-[72%] -translate-x-1/2 rounded-full blur-lg opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
                   style={{
-                    background:
-                      "radial-gradient(62% 100% at 50% 100%, rgba(63,127,95,0.18) 0%, rgba(63,127,95,0.04) 42%, rgba(63,127,95,0) 100%)",
+                    background: `radial-gradient(62% 100% at 50% 100%, ${tc}33 0%, ${tc}0a 44%, rgba(0,0,0,0) 100%)`,
                   }}
                 />
                 <div 
