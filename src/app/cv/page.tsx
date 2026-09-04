@@ -168,7 +168,7 @@ export default function CvPage() {
                 </p>
                 <h1 className="mt-3 text-[2.15rem] font-semibold tracking-tight text-[#161616] min-[430px]:text-[2.35rem] sm:text-6xl lg:text-7xl">
                   Enzo{" "}
-                  <span className="inline font-serif italic font-normal text-[#7b7469]">
+                  <span className="inline font-serif italic font-normal text-[#2f6b57]">
                     Bispo
                   </span>
                 </h1>
@@ -181,7 +181,7 @@ export default function CvPage() {
                 {content.summary}
               </p>
 
-              <div className="mt-8 border-t border-white/8 pt-6">
+              <div className="mt-8 border-t border-black/10 pt-6">
                 <div className="grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-4">
                   {content.quickFacts.map((fact) => (
                     <div key={fact.label}>
@@ -203,7 +203,7 @@ export default function CvPage() {
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-[#2f6b57]/24 bg-[#2f6b57]/10 text-[#2f6b57]">
                 <Sparkles className="h-4 w-4" />
               </span>
-              <h2 className="text-2xl font-bold tracking-tight text-[#161616] sm:text-[1.8rem]">
+              <h2 className="text-2xl font-bold tracking-tight text-[#161616]">
                 {content.metricsTitle}
               </h2>
             </div>
@@ -212,7 +212,7 @@ export default function CvPage() {
               {content.metrics.map((metric) => (
                 <div
                   key={metric.label}
-                  className="group relative overflow-hidden rounded-[1.4rem] border border-black/12 bg-white/3 px-5 py-5 transition-[background-color,border-color,box-shadow,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-[#2f6b57]/30 hover:bg-[#f4faf6] hover:shadow-[0_0_0_1px_rgba(47,107,87,0.10),0_16px_28px_rgba(47,107,87,0.08)]"
+                  className="group relative overflow-hidden rounded-[1.4rem] border border-black/12 bg-[#f7faf8] px-5 py-5 transition-[background-color,border-color,box-shadow,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-[#2f6b57]/30 hover:bg-[#f4faf6] hover:shadow-[0_0_0_1px_rgba(47,107,87,0.10),0_16px_28px_rgba(47,107,87,0.08)]"
                 >
                   <div
                     className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
@@ -221,13 +221,13 @@ export default function CvPage() {
                         "radial-gradient(160px circle at 18% 14%, rgba(47,107,87,0.10), rgba(47,107,87,0) 62%), radial-gradient(180px circle at 84% 88%, rgba(47,107,87,0.06), rgba(47,107,87,0) 64%)",
                     }}
                   />
-                  <p className="relative z-10 text-3xl font-black tracking-tight text-[#161616] transition-colors duration-500 group-hover:text-[#2f6b57]">
-                    {metric.value}
-                  </p>
-                  <p className="relative z-10 mt-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#161616]/62 transition-colors duration-500 group-hover:text-[#161616]/78">
+                  <p className="relative z-10 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2f6b57]">
                     {metric.label}
                   </p>
-                  <p className="relative z-10 mt-2 text-sm leading-relaxed text-[#161616]/50 transition-colors duration-500 group-hover:text-[#161616]/58">
+                  <p className="relative z-10 mt-2 text-lg font-black leading-tight tracking-tight text-[#161616] sm:text-xl">
+                    {metric.value}
+                  </p>
+                  <p className="relative z-10 mt-2 text-sm leading-relaxed text-[#161616]/55 transition-colors duration-500 group-hover:text-[#161616]/68">
                     {metric.detail}
                   </p>
                 </div>
@@ -235,8 +235,8 @@ export default function CvPage() {
             </div>
           </section>
 
-          <section className="mt-12 grid items-stretch gap-6 xl:grid-cols-[0.88fr_1.12fr]">
-            <div className="flex h-full flex-col gap-6">
+          <section className="mt-12 grid items-start gap-6 xl:grid-cols-[0.85fr_1.15fr]">
+            <div className="flex flex-col gap-6">
               <div className="rounded-4xl border border-black/12 bg-[#fdfbf8] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.24)]">
                 <div className="mb-6 flex items-center gap-3">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-[#2f6b57]/24 bg-[#2f6b57]/10 text-[#2f6b57]">
@@ -251,8 +251,9 @@ export default function CvPage() {
                   {content.education.map((item) => (
                     <div
                       key={`${item.school}-${item.title}`}
-                      className="group relative overflow-hidden rounded-3xl border border-black/12 bg-white/4 p-4 transition-[background-color,border-color,box-shadow,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-[#2f6b57]/30 hover:bg-[#f4faf6] hover:shadow-[0_0_0_1px_rgba(47,107,87,0.10),0_14px_24px_rgba(47,107,87,0.07)]"
+                      className="group relative overflow-hidden rounded-3xl border border-black/12 bg-[#f7faf8] p-4 pl-5 transition-[background-color,border-color,box-shadow,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-[#2f6b57]/30 hover:bg-[#f4faf6] hover:shadow-[0_0_0_1px_rgba(47,107,87,0.10),0_14px_24px_rgba(47,107,87,0.07)]"
                     >
+                      <span className="pointer-events-none absolute inset-y-0 left-0 w-1 bg-[#2f6b57]/55 transition-colors duration-500 group-hover:bg-[#2f6b57]" />
                       <div
                         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
                         style={{
@@ -291,7 +292,7 @@ export default function CvPage() {
                   {content.languages.map((item) => (
                     <div
                       key={item.name}
-                      className="group relative flex items-center justify-between overflow-hidden rounded-[1.4rem] border border-black/12 bg-white/4 px-4 py-3 transition-[background-color,border-color,box-shadow,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-[#2f6b57]/30 hover:bg-[#f4faf6] hover:shadow-[0_0_0_1px_rgba(47,107,87,0.10),0_14px_24px_rgba(47,107,87,0.07)]"
+                      className="group relative flex items-center justify-between overflow-hidden rounded-[1.4rem] border border-black/12 bg-[#f7faf8] px-4 py-3 transition-[background-color,border-color,box-shadow,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-[#2f6b57]/30 hover:bg-[#f4faf6] hover:shadow-[0_0_0_1px_rgba(47,107,87,0.10),0_14px_24px_rgba(47,107,87,0.07)]"
                     >
                       <div
                         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
@@ -322,7 +323,7 @@ export default function CvPage() {
                 <div className="mt-6 space-y-3">
                   <a
                     href="mailto:enzo.bispo22@gmail.com"
-                    className="flex items-center gap-3 rounded-2xl border border-black/12 bg-[#f8f4ef] px-4 py-3 text-sm text-[#161616]/86 transition-colors hover:bg-white/8"
+                    className="flex items-center gap-3 rounded-2xl border border-black/12 bg-[#f8f4ef] px-4 py-3 text-sm text-[#161616]/86 transition-colors hover:border-[#2f6b57]/35 hover:bg-white"
                   >
                     <Mail className="h-4 w-4 text-[#5e786d]" />
                     enzo.bispo22@gmail.com
@@ -330,7 +331,7 @@ export default function CvPage() {
 
                   <a
                     href="tel:+5521999491122"
-                    className="flex items-center gap-3 rounded-2xl border border-black/12 bg-[#f8f4ef] px-4 py-3 text-sm text-[#161616]/86 transition-colors hover:bg-white/8"
+                    className="flex items-center gap-3 rounded-2xl border border-black/12 bg-[#f8f4ef] px-4 py-3 text-sm text-[#161616]/86 transition-colors hover:border-[#2f6b57]/35 hover:bg-white"
                   >
                     <Phone className="h-4 w-4 text-[#5e786d]" />
                     +55 21 99949-1122
@@ -347,7 +348,7 @@ export default function CvPage() {
                     href="https://github.com/Enzirneo"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 rounded-2xl border border-black/12 bg-[#f8f4ef] px-4 py-3 text-sm text-[#161616]/84 transition-colors hover:bg-white/8"
+                    className="flex items-center gap-3 rounded-2xl border border-black/12 bg-[#f8f4ef] px-4 py-3 text-sm text-[#161616]/84 transition-colors hover:border-[#2f6b57]/35 hover:bg-white"
                   >
                     <Github className="h-4 w-4 text-[#5e786d]" />
                     GitHub
@@ -357,7 +358,7 @@ export default function CvPage() {
                     href="https://www.linkedin.com/in/enzo-bispo-68738a24b/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 rounded-2xl border border-black/12 bg-[#f8f4ef] px-4 py-3 text-sm text-[#161616]/84 transition-colors hover:bg-white/8"
+                    className="flex items-center gap-3 rounded-2xl border border-black/12 bg-[#f8f4ef] px-4 py-3 text-sm text-[#161616]/84 transition-colors hover:border-[#2f6b57]/35 hover:bg-white"
                   >
                     <Linkedin className="h-4 w-4 text-[#5e786d]" />
                     LinkedIn
@@ -401,7 +402,7 @@ export default function CvPage() {
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-[#2f6b57]/24 bg-[#2f6b57]/10 text-[#2f6b57]">
                     <BriefcaseBusiness className="h-4 w-4" />
                   </span>
-                  <h2 className="text-2xl font-bold tracking-tight text-[#161616] sm:text-3xl">
+                  <h2 className="text-2xl font-bold tracking-tight text-[#161616]">
                     {content.experienceTitle}
                   </h2>
                 </div>
@@ -410,8 +411,9 @@ export default function CvPage() {
                   {content.experience.map((item) => (
                     <article
                       key={`${item.company}-${item.role}`}
-                      className="group relative overflow-hidden rounded-[1.6rem] border border-black/12 bg-white/4 p-5 transition-[background-color,border-color,box-shadow,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-[#2f6b57]/30 hover:bg-[#f4faf6] hover:shadow-[0_0_0_1px_rgba(47,107,87,0.10),0_14px_24px_rgba(47,107,87,0.07)]"
+                      className="group relative overflow-hidden rounded-[1.6rem] border border-black/12 bg-[#f7faf8] p-5 pl-6 transition-[background-color,border-color,box-shadow,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-[#2f6b57]/30 hover:bg-[#f4faf6] hover:shadow-[0_0_0_1px_rgba(47,107,87,0.10),0_14px_24px_rgba(47,107,87,0.07)]"
                     >
+                      <span className="pointer-events-none absolute inset-y-0 left-0 w-1 bg-[#2f6b57]/55 transition-colors duration-500 group-hover:bg-[#2f6b57]" />
                       <div
                         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
                         style={{
@@ -457,7 +459,7 @@ export default function CvPage() {
                 <div className="space-y-4">
                   {content.skillGroups.map((group) => (
                     <div key={group.title}>
-                      <h3 className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#161616]/42">
+                      <h3 className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#2f6b57]/80">
                         {group.title}
                       </h3>
 
@@ -468,7 +470,7 @@ export default function CvPage() {
                           return (
                             <span
                               key={item}
-                              className="inline-flex items-center gap-1.5 rounded-full border border-black/12 bg-white/4 px-2.5 py-1 text-[10px] font-medium text-[#161616]/72"
+                              className="inline-flex items-center gap-1.5 rounded-full border border-[#2f6b57]/16 bg-[#f4faf6] px-2.5 py-1 text-[10px] font-medium text-[#161616]/78"
                             >
                               <Icon className="h-3.5 w-3.5 shrink-0 text-[#2f6b57]" />
                               <span className="leading-none">{item}</span>
@@ -483,7 +485,7 @@ export default function CvPage() {
             </div>
           </section>
 
-          <div className="mt-12 flex flex-col gap-3 border-t border-white/8 pt-6 text-sm text-[#161616]/42 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-12 flex flex-col gap-3 border-t border-black/10 pt-6 text-sm text-[#161616]/42 sm:flex-row sm:items-center sm:justify-between">
             <p className="max-w-2xl">{content.footerNote}</p>
             <Link
               href="/"
