@@ -1,5 +1,3 @@
-"use client";
-
 import { Navbar, Footer } from "@/shared/components/layout";
 import {
   HeroSection,

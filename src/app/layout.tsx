@@ -10,7 +10,6 @@ import { SmoothScroll } from "@/shared/components/layout";
 import { LanguageProvider } from "@/shared/i18n/LanguageProvider";
 import { SITE_URL } from "@/shared/lib/site";
 import {
-  defaultLanguage,
   getLanguageFromAcceptLanguage,
   isLanguage,
   LANGUAGE_COOKIE_KEY,
@@ -98,7 +97,7 @@ const resolveRequestLanguage = cache(async function resolveRequestLanguage(): Pr
 
   const headerStore = await headers();
   const acceptLanguage = headerStore.get("accept-language");
-  return getLanguageFromAcceptLanguage(acceptLanguage) ?? defaultLanguage;
+  return getLanguageFromAcceptLanguage(acceptLanguage);
 });
 
 export async function generateMetadata(): Promise<Metadata> {
