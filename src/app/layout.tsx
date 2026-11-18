@@ -6,7 +6,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import ConsoleEasterEgg from "@/shared/components/layout/ConsoleEasterEgg";
-import { SmoothScroll } from "@/shared/components/layout";
 import { LanguageProvider } from "@/shared/i18n/LanguageProvider";
 import { SITE_URL } from "@/shared/lib/site";
 import { translations } from "@/shared/i18n/translations";
@@ -198,7 +197,6 @@ export default async function RootLayout({
             {translations[language].nav.skipToContent}
           </a>
           <ConsoleEasterEgg />
-          <SmoothScroll />
           {children}
           <Analytics />
         </LanguageProvider>

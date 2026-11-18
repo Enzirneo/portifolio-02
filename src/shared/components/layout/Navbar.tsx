@@ -138,7 +138,7 @@ export function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-70">
       <div className="mx-2 mt-2 sm:mx-4 sm:mt-4">
-        <div className="max-w-5xl mx-auto rounded-[1.75rem] px-3 py-3 sm:rounded-full sm:px-6 sm:py-3 bg-white/80 backdrop-blur-md border border-black/5 shadow-sm transition-colors duration-500 hover:bg-white/90">
+        <div className="max-w-5xl mx-auto rounded-[1.75rem] px-3 py-3 sm:rounded-full sm:px-6 sm:py-3 bg-white/92 border border-black/5 shadow-sm transition-colors duration-500 hover:bg-white/95">
           <div className="relative z-80 flex items-center justify-between gap-3 sm:hidden">
             <Link
               href="/"

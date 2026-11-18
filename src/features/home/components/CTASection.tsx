@@ -44,21 +44,9 @@ export function CTASection() {
             
             {/* Animated Gradients Container */}
             <div className="absolute inset-0 rounded-full overflow-hidden isolate z-0">
-                {/* Rotating Color Mesh */}
-                <div className={`absolute -inset-full animate-[spin_3s_linear_infinite] opacity-100 blur-[30px] ${orbMotionClass}`}>
-                     {/* Blue blob */}
-                    <div className="absolute top-0 right-[20%] w-[70%] h-[70%] bg-[#2f6b57] rounded-full mix-blend-screen opacity-80" />
-                    {/* Purple blob */}
-                    <div className="absolute bottom-0 left-[20%] w-[70%] h-[70%] bg-[#5f8f78] rounded-full mix-blend-screen opacity-80" />
-                    {/* Cyan blob */}
-                    <div className="absolute top-[40%] left-0 w-[60%] h-[60%] bg-[#86a995] rounded-full mix-blend-screen opacity-80" />
-                </div>
-                
-                 {/* Second Counter-Rotating Layer for Complexity */}
-                 <div className={`absolute -inset-full animate-[spin_4s_linear_infinite_reverse] opacity-80 blur-[20px] mix-blend-overlay ${orbMotionClass}`}>
-                    <div className="absolute top-0 left-[30%] w-[60%] h-[60%] bg-[#7fa08f] rounded-full mix-blend-screen" />
-                    <div className="absolute bottom-[20%] right-0 w-[60%] h-[60%] bg-[#3b7d66] rounded-full mix-blend-screen" />
-                 </div>
+                <div
+                  className={`absolute inset-0 animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_0deg,#2f6b57,#86a995,#3b7d66,#7fa08f,#2f6b57)] opacity-90 ${orbMotionClass}`}
+                />
             </div>
 
             {/* Inner Photo Circle */}
