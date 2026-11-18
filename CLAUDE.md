@@ -28,8 +28,8 @@ src/
 └── shared/
     ├── components/  # icons, layout (Navbar, Footer, SmoothScroll), ui
     ├── data/        # projects, skills
-    ├── i18n/        # LanguageProvider (pt-BR / en via cookie)
-    └── lib/         # i18n, site (SITE_URL), utils (cn)
+    ├── i18n/        # LanguageProvider (pt-BR / en via cookie) + translations/ (um arquivo por idioma)
+    └── lib/         # i18n (tipo Language + deteccao de idioma), site (SITE_URL), utils (cn)
 ```
 
 ## Antes de qualquer alteracao — ordem obrigatoria
