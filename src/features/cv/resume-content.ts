@@ -98,8 +98,8 @@ export const cvContent: Record<Language, CvContent> = {
     summary:
       "Desenvolvedor Full Stack Junior dedicado à construção de interfaces modernas, intuitivas e centradas no usuário. Atuo na criação de produtos digitais que unem boa experiência de uso a um código bem estruturado e de fácil manutenção.\n\nTenho forte base em desenvolvimento front-end e design de interfaces, aliada à prática de organização de código e atenção aos detalhes que fazem a diferença na experiência do usuário. Atualmente estou me especializando em Arquitetura de Software por meio de pós-graduação, ampliando minha visão sobre escalabilidade e estruturação de sistemas — um passo importante na minha trajetória para, no futuro, atuar também como Arquiteto de Software.\n\nBusco desenvolver interfaces que não apenas funcionem bem, mas que sejam pensadas para oferecer experiências fluidas e evoluir junto com o produto ao longo do tempo.",
     actions: {
-      download: "Download CV",
-      downloadAts: "Versão em texto ATS-friendly",
+      download: "Baixar currículo (PDF)",
+      downloadAts: "Versão em texto (.txt) para sistemas ATS",
       contact: "Falar comigo",
       portfolio: "Voltar ao portfólio",
     },
@@ -290,8 +290,8 @@ export const cvContent: Record<Language, CvContent> = {
     summary:
       "Junior Full Stack Developer dedicated to building modern, intuitive, user-centered interfaces. I create digital products that pair a good user experience with well-structured, maintainable code.\n\nI have a strong foundation in front-end development and interface design, along with the habit of organizing code and paying attention to the details that make a difference in the user experience. I am currently specializing in Software Architecture through a postgraduate program, broadening my view on scalability and system structure — an important step toward eventually also working as a Software Architect.\n\nI aim to build interfaces that not only work well but are designed to feel fluid and to evolve alongside the product over time.",
     actions: {
-      download: "Download CV",
-      downloadAts: "ATS-friendly text version",
+      download: "Download resume (PDF)",
+      downloadAts: "Plain-text version (.txt) for ATS",
       contact: "Get in touch",
       portfolio: "Back to portfolio",
     },

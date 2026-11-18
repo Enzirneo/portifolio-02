@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FileText, ArrowLeftRight } from "lucide-react";
+import { FileText } from "lucide-react";
+import { LanguageSwitchLabel } from "./LanguageSwitchLabel";
 import { useTranslations } from "@/shared/i18n/LanguageProvider";
 
 const navItems = [
@@ -131,7 +132,7 @@ export function Navbar() {
     "shadow-[inset_-4px_-4px_9px_rgba(255,255,255,0.85),inset_4px_4px_10px_rgba(168,154,132,0.42)]";
 
   const cvClass = (mobile: boolean) =>
-    `${isCvPage ? neuPressed : neuRaised} ${mobile ? "h-10 w-10" : "h-10 w-10 sm:h-11 sm:w-11"}`;
+    `${isCvPage ? neuPressed : neuRaised} ${mobile ? "h-10 w-10" : "h-10 w-10 sm:h-11 sm:w-auto sm:px-4 sm:text-sm"}`;
   const langClass = (mobile: boolean) =>
     `${neuRaised} ${mobile ? "px-3.5 py-2 text-sm" : "px-4 py-2.5 text-sm"}`;
 
@@ -217,7 +218,8 @@ export function Navbar() {
                   title={copy.nav.cv}
                   className={cvClass(false)}
                 >
-                  <FileText className="h-4 w-4" />
+                  <FileText className="h-4 w-4 text-[#2f6b57]" />
+                  <span className="hidden sm:inline">{copy.nav.cv}</span>
                 </Link>
 
                 <button
@@ -227,8 +229,7 @@ export function Navbar() {
                   title={copy.nav.languageToggle}
                   className={langClass(false)}
                 >
-                  <ArrowLeftRight className="h-3.5 w-3.5 opacity-70" />
-                  {language === "pt-BR" ? "EN" : "PT"}
+                  <LanguageSwitchLabel current={language} />
                 </button>
               </div>
             </div>
@@ -276,8 +277,7 @@ export function Navbar() {
                 title={copy.nav.languageToggle}
                 className={langClass(true)}
               >
-                <ArrowLeftRight className="h-3.5 w-3.5 opacity-70" />
-                {language === "pt-BR" ? "EN" : "PT"}
+                <LanguageSwitchLabel current={language} />
               </button>
             </div>
 

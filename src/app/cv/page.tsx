@@ -387,9 +387,9 @@ export default function CvPage() {
 
                   <a
                     href={atsHref}
-                    className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full border border-black/12 bg-[#f7f2ec] px-4 py-3 text-sm font-semibold text-[#161616] text-center transition-[background-color,border-color,box-shadow] hover:border-[#2f6b57]/35 hover:bg-[#f4faf6] hover:shadow-[0_0_0_1px_rgba(47,107,87,0.12)]"
+                    className="inline-flex items-center justify-center gap-2 text-sm font-medium text-[#161616]/70 underline-offset-4 transition-colors hover:text-[#2f6b57] hover:underline"
                   >
-                    <FileText className="h-4 w-4 shrink-0" />
+                    <FileText className="h-4 w-4 shrink-0" aria-hidden="true" />
                     <span className="leading-tight">{content.actions.downloadAts}</span>
                   </a>
                 </div>
