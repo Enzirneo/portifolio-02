@@ -6,8 +6,12 @@ export interface ProjectCopy {
   role: string;
 }
 
+export type ProjectStatus = "live" | "development" | "local" | "study";
+
 export interface Project {
   name: string;
+  status: ProjectStatus;
+  featured: boolean;
   copy: Record<Language, ProjectCopy>;
   tech: string[];
   url?: string;
@@ -16,36 +20,133 @@ export interface Project {
   imageBackground?: string;
   imageZoom?: number;
   imageAspectRatio?: number;
-  images?: string[];
 }
 
 export const projects: Project[] = [
   {
     name: "Flwxo",
+    status: "live",
+    featured: true,
     copy: {
       "pt-BR": {
         description:
-          "SaaS de gestão para clínicas de odontologia, HOF e estética, em produção. Projetei e desenvolvi a landing page e o sistema: agenda por profissional e sala, prontuário com odontograma, orçamentos com aceite digital, documentos com assinatura, financeiro e portal do paciente.",
+          "SaaS de gestão para clínicas de odontologia, HOF e estética, em produção. Projetei e desenvolvi o produto inteiro, em monorepo (site, sistema, API e extensão de WhatsApp): agenda por profissional e sala, prontuário com odontograma, orçamentos com aceite digital, documentos com assinatura, financeiro e portal do paciente.",
         outcome:
           "Produto real, no ar, com teste grátis de 30 dias e planos pagos.",
         role: "Design e desenvolvimento full stack",
       },
       en: {
         description:
-          "Management SaaS for dental, facial-aesthetics and aesthetics clinics, running in production. I designed and built both the landing page and the system: scheduling by professional and room, charts with a dental odontogram, quotes with digital acceptance, signed documents, finance and a patient portal.",
+          "Management SaaS for dental, facial-aesthetics and aesthetics clinics, running in production. I designed and built the whole product as a monorepo (website, system, API and WhatsApp extension): scheduling by professional and room, charts with a dental odontogram, quotes with digital acceptance, signed documents, finance and a patient portal.",
         outcome:
           "A real, live product with a 30-day free trial and paid plans.",
         role: "Design and full-stack development",
       },
     },
-    tech: ["Full stack", "SaaS", "Landing page"],
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "TanStack Query", "Zod"],
     weburl: "https://flwxo.com.br/",
     image: "/images/Flwxo.jpg",
     imageBackground: "#0f3a3f",
     imageAspectRatio: 1568 / 772,
   },
   {
+    name: "Central de Jogos",
+    status: "development",
+    featured: true,
+    copy: {
+      "pt-BR": {
+        description:
+          "Plataforma multiplayer local e remota no estilo Jackbox. Um servidor autoritativo em Colyseus mantém o estado de cada partida, e os jogos entram como módulos plugáveis. O contrato entre servidor e clientes é tipado com Zod, com cliente web em Angular em andamento e mobile em Flutter planejado.",
+        outcome:
+          "Monorepo (Turborepo) com servidor, protocolo e jogos separados, mais Postgres e Redis via Docker.",
+        role: "Arquitetura e desenvolvimento full stack",
+      },
+      en: {
+        description:
+          "Local and remote multiplayer platform in the Jackbox style. An authoritative Colyseus server holds each match's state, and games plug in as modules. The server-client contract is typed with Zod, with an Angular web client in progress and a Flutter mobile client planned.",
+        outcome:
+          "Monorepo (Turborepo) with server, protocol and games kept apart, plus Postgres and Redis through Docker.",
+        role: "Architecture and full-stack development",
+      },
+    },
+    tech: ["TypeScript", "Colyseus", "Angular", "Zod", "PostgreSQL", "Redis"],
+    url: "https://github.com/Enzirneo/central-de-jogos",
+  },
+  {
+    name: "Norbit",
+    status: "development",
+    featured: true,
+    copy: {
+      "pt-BR": {
+        description:
+          "Agenda pessoal que se abre para outras pessoas: cada usuário tem suas agendas e escolhe quais compartilhar, com quem e em que nível. Pensada para grupos pequenos e de alta confiança, como casal, família e amigos, com privacidade granular, recorrência, convites e uma identidade visual espacial.",
+        outcome:
+          "Uma especificação por funcionalidade (23 documentos), com testes unitários e E2E.",
+        role: "Produto, arquitetura e desenvolvimento full stack",
+      },
+      en: {
+        description:
+          "A personal calendar that opens up to other people: each user has their own calendars and chooses which to share, with whom and at what level. Built for small, high-trust groups such as couples, families and friends, with granular privacy, recurrence, invitations and a space-themed visual identity.",
+        outcome:
+          "One spec per feature (23 documents), backed by unit and E2E tests.",
+        role: "Product, architecture and full-stack development",
+      },
+    },
+    tech: ["Angular", "NestJS", "Prisma", "PostgreSQL", "Zod", "Nx"],
+    url: "https://github.com/Enzirneo/Norbit",
+  },
+  {
+    name: "Mosaico",
+    status: "development",
+    featured: true,
+    copy: {
+      "pt-BR": {
+        description:
+          "Galeria de fotos em mural (masonry): descubra imagens, favorite, envie as suas, organize em álbuns e compartilhe por link, com prévia de título e foto no WhatsApp. Ambientes de desenvolvimento e produção separados, cada um com o seu banco.",
+        outcome:
+          "Banco versionado em 11 migrações do Supabase, com travas que impedem o ambiente de dev de tocar produção.",
+        role: "Design e desenvolvimento full stack",
+      },
+      en: {
+        description:
+          "Masonry-style photo gallery: discover images, favorite them, upload your own, organize into albums and share by link, with a title and photo preview on WhatsApp. Development and production run as separate environments, each with its own database.",
+        outcome:
+          "Database versioned in 11 Supabase migrations, with guards that stop the dev environment from touching production.",
+        role: "Design and full-stack development",
+      },
+    },
+    tech: ["React", "Vite", "Tailwind CSS", "Supabase", "Vitest", "Vercel"],
+    url: "https://github.com/Enzirneo/Mosaico-Galery",
+  },
+  {
+    name: "My Spoti Player",
+    status: "local",
+    featured: true,
+    copy: {
+      "pt-BR": {
+        description:
+          "Mini player do Spotify que fica sempre à vista: as cores da interface vêm da capa do álbum e a barra de progresso tem ondas animadas. App desktop para Windows em Electron, com HTML, CSS e JavaScript puros, que controla o Spotify oficial pela Web API.",
+        outcome:
+          "Dois modos (janela e pílula arrastável) e fundo acrílico do Windows 11.",
+        role: "Design e desenvolvimento",
+      },
+      en: {
+        description:
+          "A Spotify mini player that stays in view: the interface colors come from the album cover and the progress bar has animated waves. A Windows desktop app built with Electron and plain HTML, CSS and JavaScript, controlling the official Spotify app through its Web API.",
+        outcome:
+          "Two modes (window and draggable pill) and the Windows 11 acrylic backdrop.",
+        role: "Design and development",
+      },
+    },
+    tech: ["Electron", "JavaScript", "Spotify Web API", "Vitest"],
+    url: "https://github.com/Enzirneo/My-Spoti-Player",
+    image: "/images/SpotiPlayer.png",
+    imageBackground: "#161a18",
+  },
+  {
     name: "Enlemar",
+    status: "study",
+    featured: false,
     copy: {
       "pt-BR": {
         description:
@@ -67,6 +168,8 @@ export const projects: Project[] = [
   },
   {
     name: "Organo",
+    status: "study",
+    featured: false,
     copy: {
       "pt-BR": {
         description:
@@ -89,6 +192,8 @@ export const projects: Project[] = [
   },
   {
     name: "Galeria de Fotos",
+    status: "study",
+    featured: false,
     copy: {
       "pt-BR": {
         description:
@@ -111,6 +216,8 @@ export const projects: Project[] = [
   },
   {
     name: "NeuroSync",
+    status: "study",
+    featured: false,
     copy: {
       "pt-BR": {
         description:

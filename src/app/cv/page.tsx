@@ -430,6 +430,7 @@ export default function CvPage() {
                       <p className="relative z-10 mt-1 text-sm font-medium text-[#2f6b57]">
                         {item.company}
                       </p>
+                      {item.bullets.length > 0 && (
                       <ul className="mt-4 space-y-2">
                         {item.bullets.map((bullet) => (
                           <li
@@ -441,6 +442,7 @@ export default function CvPage() {
                           </li>
                         ))}
                       </ul>
+                      )}
                     </article>
                   ))}
                 </div>

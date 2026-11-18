@@ -84,6 +84,13 @@ export const ptBR = {
     titleAccent: "de Projetos",
     source: "Código",
     liveDemo: "Demo",
+    status: {
+      live: "No ar",
+      development: "Em desenvolvimento",
+      local: "Roda localmente",
+      study: "Projeto de estudo",
+    },
+    othersTitle: "Outros projetos",
     footer: "E outros projetos em andamento.",
   },
   github: {

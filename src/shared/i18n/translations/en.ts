@@ -84,6 +84,13 @@ export const en: Translation = {
     titleAccent: "Showcase",
     source: "Source",
     liveDemo: "Live Demo",
+    status: {
+      live: "Live",
+      development: "In development",
+      local: "Runs locally",
+      study: "Study project",
+    },
+    othersTitle: "More projects",
     footer: "And other projects in progress.",
   },
   github: {
