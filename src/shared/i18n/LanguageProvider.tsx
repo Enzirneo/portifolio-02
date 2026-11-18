@@ -2,7 +2,6 @@
 
 import {
   createContext,
-  startTransition,
   useCallback,
   useContext,
   useEffect,
@@ -10,12 +9,8 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import {
-  LANGUAGE_COOKIE_KEY,
-  translations,
-  type Language,
-  type Translation,
-} from "@/shared/lib/i18n";
+import { LANGUAGE_COOKIE_KEY, type Language } from "@/shared/lib/i18n";
+import { translations, type Translation } from "./translations";
 
 type LanguageContextValue = {
   language: Language;
@@ -61,9 +56,7 @@ export function LanguageProvider({
 
       document.documentElement.lang = next;
       persistLanguagePreference(next);
-      startTransition(() => {
-        setLanguageState(next);
-      });
+      setLanguageState(next);
     },
     [language]
   );

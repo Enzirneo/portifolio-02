@@ -3,7 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ArrowUpRight } from "lucide-react";
+import { projects } from "@/shared/data/projects";
 import { useTranslations } from "@/shared/i18n/LanguageProvider";
+
+const liveProject = projects.find((project) => project.status === "live");
+
+function prefersReducedMotion() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
 
 export function HeroSection() {
   const { copy, language } = useTranslations();
@@ -15,6 +23,7 @@ export function HeroSection() {
   const secondWordRef = useRef<HTMLSpanElement>(null);
   const quoteRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const proofRef = useRef<HTMLAnchorElement>(null);
 
   const roles = copy.hero.roles;
   const [roleIndex, setRoleIndex] = useState(0);
@@ -26,6 +35,8 @@ export function HeroSection() {
 
   useGSAP(
     () => {
+      if (prefersReducedMotion()) return;
+
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
       tl.from(badgeRef.current, {
@@ -70,12 +81,22 @@ export function HeroSection() {
           },
           "-=0.6"
         )
-        ;
+        .from(
+          proofRef.current,
+          {
+            y: 20,
+            opacity: 0,
+            duration: 0.8,
+          },
+          "-=0.5"
+        );
     },
     { scope: containerRef }
   );
 
   useEffect(() => {
+    if (prefersReducedMotion()) return;
+
     let frameId: number | null = null;
 
     const getRoleTargets = () =>
@@ -168,10 +189,10 @@ export function HeroSection() {
     <section
       id="hero"
       ref={containerRef}
-      className="relative z-10 flex min-h-[100svh] items-center justify-center overflow-visible bg-[#f7f3ee] px-4 pt-20 sm:min-h-dvh sm:px-6 sm:pt-24"
+      className="relative z-10 flex min-h-[100svh] items-center justify-center overflow-visible bg-[#f1eadb] px-4 pt-20 sm:min-h-dvh sm:px-6 sm:pt-24"
     >
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(15,23,42,0.055)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.055)_1px,transparent_1px)] bg-size-[16px_16px]" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 sm:hidden bg-[linear-gradient(180deg,rgba(247,243,238,0)_0%,rgba(247,243,238,0.12)_58%,rgba(247,243,238,0.28)_100%)]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 sm:hidden bg-[linear-gradient(180deg,rgba(241,234,219,0)_0%,rgba(241,234,219,0.12)_58%,rgba(241,234,219,0.28)_100%)]" />
       <div className="max-w-6xl mx-auto w-full relative z-10 flex flex-col items-center text-center">
         <button
           ref={badgeRef}
@@ -227,7 +248,7 @@ export function HeroSection() {
               e.preventDefault();
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="inline-flex w-full items-center justify-center rounded-full bg-black px-6 py-3 text-base font-bold text-white shadow-lg shadow-black/20 transition-all hover:bg-gray-800 sm:w-auto sm:px-8 sm:py-4 sm:text-lg"
+            className="inline-flex w-full items-center justify-center rounded-full bg-[#2f6b57] px-6 py-3 text-base font-bold text-white shadow-lg shadow-[#2f6b57]/25 transition-all hover:-translate-y-1 hover:bg-[#356f5c] hover:shadow-[#2f6b57]/35 sm:w-auto sm:px-8 sm:py-4 sm:text-lg"
           >
             {copy.hero.ctaPrimary}
           </a>
@@ -237,11 +258,30 @@ export function HeroSection() {
               e.preventDefault();
               document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-black/10 bg-black/5 px-6 py-3 text-base font-bold text-black transition-all hover:-translate-y-1 hover:border-black/20 hover:bg-black/10 sm:w-auto sm:px-8 sm:text-lg"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#2f6b57]/25 bg-[#2f6b57]/8 px-6 py-3 text-base font-bold text-[#2f6b57] transition-all hover:-translate-y-1 hover:border-[#2f6b57]/45 hover:bg-[#2f6b57]/14 sm:w-auto sm:px-8 sm:text-lg"
           >
             {copy.hero.ctaSecondary}
           </a>
         </div>
+
+        {liveProject?.weburl && (
+          <a
+            ref={proofRef}
+            href={liveProject.weburl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mt-8 inline-flex items-center gap-3 rounded-full border border-black/8 bg-white/70 px-4 py-2 text-sm text-black/75 transition-colors hover:border-[#2f6b57]/30 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2f6b57] sm:mt-10"
+          >
+            <span className="rounded-full bg-emerald-600/12 px-2.5 py-0.5 text-[11px] font-bold tracking-[0.08em] text-emerald-900 uppercase">
+              {copy.hero.proofLabel}
+            </span>
+            <span className="font-medium">{copy.hero.proofText}</span>
+            <ArrowUpRight
+              className="h-4 w-4 text-black/45 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#2f6b57]"
+              aria-hidden="true"
+            />
+          </a>
+        )}
 
       </div>
 
@@ -251,7 +291,7 @@ export function HeroSection() {
           document.getElementById("about")?.scrollIntoView({ behavior: "smooth", block: "start" });
         }}
         aria-label={aboutHintLabel}
-        className={`fixed bottom-4 left-1/2 z-30 inline-flex -translate-x-1/2 items-center gap-2 rounded-full border border-black/10 bg-white/80 px-3 py-2 text-[11px] font-semibold tracking-[0.08em] text-black/75 uppercase shadow-[0_10px_28px_rgba(0,0,0,0.12)] backdrop-blur-md transition-all duration-300 sm:bottom-6 sm:px-4 sm:py-2.5 ${
+        className={`fixed bottom-4 left-1/2 z-30 inline-flex -translate-x-1/2 items-center gap-2 rounded-full border border-black/10 bg-white/95 px-3 py-2 text-[11px] font-semibold tracking-[0.08em] text-black/75 uppercase shadow-[0_10px_28px_rgba(0,0,0,0.12)] transition-all duration-300 sm:bottom-6 sm:px-4 sm:py-2.5 ${
           showAboutHint
             ? "pointer-events-auto translate-y-0 opacity-100"
             : "pointer-events-none translate-y-3 opacity-0"

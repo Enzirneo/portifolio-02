@@ -1,10 +1,17 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
 import { useTranslations } from "@/shared/i18n/LanguageProvider";
+import { useInView } from "@/shared/hooks/useInView";
 
 export function CTASection() {
   const { copy } = useTranslations();
+  const orbRef = useRef<HTMLDivElement>(null);
+  const isOrbVisible = useInView(orbRef);
+  const orbMotionClass = isOrbVisible
+    ? "motion-reduce:animate-none"
+    : "[animation-play-state:paused] motion-reduce:animate-none";
   return (
     <section className="relative overflow-hidden px-4 py-10 sm:py-24">
       <div className="max-w-7xl mx-auto flex flex-col items-center justify-between gap-5 sm:gap-8 md:flex-row md:gap-12">
@@ -18,7 +25,6 @@ export function CTASection() {
                 alt="Technology Icon"
                 fill
                 sizes="(min-width: 768px) 64px, 48px"
-                suppressHydrationWarning
                 className="object-contain p-2 opacity-60 grayscale brightness-0"
               />
             </div>
@@ -32,27 +38,15 @@ export function CTASection() {
         </div>
 
         {/* Right Side: Photo Orb */}
-        <div className="relative mt-4 flex h-36 w-36 shrink-0 items-center justify-center sm:mt-8 sm:h-48 sm:w-48 md:mt-0 md:h-64 md:w-64">
+        <div ref={orbRef} className="relative mt-4 flex h-36 w-36 shrink-0 items-center justify-center sm:mt-8 sm:h-48 sm:w-48 md:mt-0 md:h-64 md:w-64">
             {/* Ambient Background Glow */}
             <div className="absolute inset-0 bg-[#2f6b57]/18 blur-[80px] rounded-full" />
             
             {/* Animated Gradients Container */}
             <div className="absolute inset-0 rounded-full overflow-hidden isolate z-0">
-                {/* Rotating Color Mesh */}
-                <div className="absolute -inset-full animate-[spin_3s_linear_infinite] opacity-100 blur-[30px]">
-                     {/* Blue blob */}
-                    <div className="absolute top-0 right-[20%] w-[70%] h-[70%] bg-[#2f6b57] rounded-full mix-blend-screen opacity-80" />
-                    {/* Purple blob */}
-                    <div className="absolute bottom-0 left-[20%] w-[70%] h-[70%] bg-[#5f8f78] rounded-full mix-blend-screen opacity-80" />
-                    {/* Cyan blob */}
-                    <div className="absolute top-[40%] left-0 w-[60%] h-[60%] bg-[#86a995] rounded-full mix-blend-screen opacity-80" />
-                </div>
-                
-                 {/* Second Counter-Rotating Layer for Complexity */}
-                 <div className="absolute -inset-full animate-[spin_4s_linear_infinite_reverse] opacity-80 blur-[20px] mix-blend-overlay">
-                    <div className="absolute top-0 left-[30%] w-[60%] h-[60%] bg-[#7fa08f] rounded-full mix-blend-screen" />
-                    <div className="absolute bottom-[20%] right-0 w-[60%] h-[60%] bg-[#3b7d66] rounded-full mix-blend-screen" />
-                 </div>
+                <div
+                  className={`absolute inset-0 animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_0deg,#2f6b57,#86a995,#3b7d66,#7fa08f,#2f6b57)] opacity-90 ${orbMotionClass}`}
+                />
             </div>
 
             {/* Inner Photo Circle */}
@@ -62,11 +56,9 @@ export function CTASection() {
                   alt="Enzo Villela Bispo"
                   fill
                   sizes="(min-width: 1280px) 320px, (min-width: 768px) 256px, 192px"
-                  quality={100}
+                  quality={85}
                   priority
                   className="object-cover object-center contrast-[1.08] saturate-[1.08]"
-                  style={{ filter: "invert(0)" }}
-                  suppressHydrationWarning
                 />
                 {/* Secondary inner reflection */}
                 <div className="absolute inset-0 rounded-full bg-linear-to-tr from-white/8 to-transparent opacity-15 pointer-events-none" />
