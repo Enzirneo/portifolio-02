@@ -72,7 +72,7 @@ export function GithubSection() {
               </div>
             </div>
 
-            <div className="relative mt-5 overflow-hidden rounded-[1.4rem] border border-black/8 bg-[linear-gradient(180deg,#ffffff_0%,#f7f3ee_100%)] p-4 sm:p-6 lg:p-7">
+            <div className="relative mt-5 overflow-hidden rounded-[1.4rem] border border-black/8 bg-[linear-gradient(180deg,#ffffff_0%,#f1eadb_100%)] p-4 sm:p-6 lg:p-7">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(111,183,202,0.08),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(63,127,95,0.08),transparent_26%)]" />
               <div className="pointer-events-none absolute inset-0 opacity-[0.16] bg-[linear-gradient(to_right,rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.03)_1px,transparent_1px)] bg-size-[24px_24px]" />
 

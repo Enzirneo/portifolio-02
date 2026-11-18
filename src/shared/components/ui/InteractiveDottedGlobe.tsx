@@ -4,6 +4,7 @@ import * as React from "react";
 import createGlobe from "cobe";
 
 import { cn } from "@/shared/lib/utils";
+import { useInView } from "@/shared/hooks/useInView";
 
 interface GlobeMarker {
   lat: number;
@@ -24,7 +25,7 @@ const DEG_TO_RAD = Math.PI / 180;
 const MAX_TILT = 0.75;
 
 export function InteractiveDottedGlobe({
-  mapSamples = 22000,
+  mapSamples = 16000,
   marker = { lat: -14.235, lng: -51.925, size: 0.18 },
   initialLongitude = -52,
   initialLatitude = -6,
@@ -34,6 +35,7 @@ export function InteractiveDottedGlobe({
 }: InteractiveDottedGlobeProps) {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
+  const inView = useInView(canvasRef);
   const pointerIdRef = React.useRef<number | null>(null);
   const isDraggingRef = React.useRef(false);
   const lastPointerRef = React.useRef({ x: 0, y: 0 });
@@ -58,8 +60,9 @@ export function InteractiveDottedGlobe({
 
   React.useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas || !inView) return;
 
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
     let size = 0;
 
     const updateSize = () => {
@@ -72,19 +75,20 @@ export function InteractiveDottedGlobe({
     resizeObserver.observe(canvas);
 
     const globe = createGlobe(canvas, {
-      devicePixelRatio: 2,
-      width: size * 2,
-      height: size * 2,
+      devicePixelRatio: pixelRatio,
+      width: size * pixelRatio,
+      height: size * pixelRatio,
       phi: phiRef.current,
       theta: thetaRef.current,
       dark: 1,
       diffuse: 1.05,
       mapSamples,
-      mapBrightness: 8.4,
-      mapBaseBrightness: 0.06,
-      baseColor: [0.055, 0.055, 0.06],
+      mapBrightness: 6,
+      mapBaseBrightness: 0.05,
+      // verde escuro puxado para o preto, alinhado a paleta (#2f6b57 / #7fa08f)
+      baseColor: [0.016, 0.06, 0.045],
       markerColor: [1, 1, 1],
-      glowColor: [1, 1, 1],
+      glowColor: [0.32, 0.55, 0.44],
       offset: [0, 0.005],
       scale: 1.02,
       markers: [
@@ -106,8 +110,8 @@ export function InteractiveDottedGlobe({
 
         state.phi = phiRef.current;
         state.theta = thetaRef.current;
-        state.width = size * 2;
-        state.height = size * 2;
+        state.width = size * pixelRatio;
+        state.height = size * pixelRatio;
       },
     });
 
@@ -116,6 +120,7 @@ export function InteractiveDottedGlobe({
       globe.destroy();
     };
   }, [
+    inView,
     autoRotateSpeed,
     mapSamples,
     marker.lat,

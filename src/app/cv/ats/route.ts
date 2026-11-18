@@ -99,7 +99,7 @@ ${languageList}`,
 ${role}
 
 ${location}
-enzo.bispo22@gmail.com | linkedin.com/in/enzo-bispo-68738a24b | portifolio-enzo-bispo.vercel.app
++55 21 99949-1122 | enzo.bispo22@gmail.com | linkedin.com/in/enzo-bispo-68738a24b | github.com/Enzirneo | portifolio-enzo-bispo.vercel.app
 
 ${sections.join("\n\n")}`;
 }

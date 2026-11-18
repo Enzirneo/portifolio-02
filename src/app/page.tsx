@@ -1,5 +1,3 @@
-"use client";
-
 import { Navbar, Footer } from "@/shared/components/layout";
 import {
   HeroSection,
@@ -13,9 +11,9 @@ import {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#f5f1eb] text-[#161616] font-(family-name:--font-geist-sans)">
+    <div className="min-h-screen bg-[#f1eadb] text-[#161616] font-(family-name:--font-geist-sans)">
       <Navbar />
-      <main className="relative z-10 w-full">
+      <main id="main-content" tabIndex={-1} className="relative z-10 w-full outline-none">
         <HeroSection />
         <AboutSection />
         <ProjectsSection />

@@ -89,7 +89,7 @@ mais ou menos o que voce esperava").
 ## 7. Boundaries / fronteiras (cap. 8)
 
 - **Isole codigo de terceiros atras de uma classe/modulo do seu dominio.** Quando
-  a lib mudar, o estrago fica contido. (Ex: `SmoothScroll` embrulha o Lenis;
+  a lib mudar, o estrago fica contido. (Ex: `InteractiveDottedGlobe` embrulha o cobe;
   `dotted-map` embrulhava o `svg-dotted-map`.)
 - **Codigo que ainda nao existe:** defina a interface dos seus sonhos, programe
   contra ela, escreva um Adapter quando a implementacao real chegar.
@@ -148,4 +148,4 @@ mais ou menos o que voce esperava").
   (`src/shared/lib/utils.ts`) para classes condicionais.
 - **`any` proibido** (eslint ja barra). Tipos em `*.ts` ao lado do uso.
 - **Dados estaticos** (projetos, skills, traducoes) em `src/shared/data` /
-  `src/shared/lib/i18n.ts` — sem logica, so estrutura.
+  `src/shared/i18n/translations/` — sem logica, so estrutura.

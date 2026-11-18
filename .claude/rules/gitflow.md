@@ -11,24 +11,25 @@
 
 ## Regra de ouro
 
-**Nunca commite nem de push direto em `master`, `homolog` ou `develop`.** Toda
-mudanca entra por Pull Request a partir de uma branch de trabalho.
+**Nunca commite direto em `master`, `homolog` ou `develop`.** Todo trabalho
+acontece numa branch de trabalho.
 
 ```
-sua-branch  ──▶  develop  ──▶  homolog  ──▶  master
+sua-branch  ──(merge direto)──▶  develop  ──(PR)──▶  homolog  ──(PR)──▶  master
 ```
 
-Voce cuida da primeira flecha (`sua-branch ▶ develop` via PR). As promocoes
-`develop ▶ homolog` e `homolog ▶ master` sao feitas em marcos, com o projeto
-verde.
+- **`sua-branch ▶ develop`**: `git merge` direto (sem PR). O repo e solo; PR aqui
+  so seria cerimonia.
+- **`develop ▶ homolog`** e **`homolog ▶ master`**: por **Pull Request**, em
+  marcos, com o projeto verde. Sao os pontos de conferencia que importam.
 
 ## Branches permanentes
 
-| Branch | O que e | Recebe PR de |
+| Branch | O que e | Como recebe |
 |---|---|---|
-| `master` | Producao. O que a Vercel publica. | So de `homolog` |
-| `homolog` | Homologacao / staging. Valida antes de subir. | So de `develop` |
-| `develop` | Integracao. Onde o trabalho se junta. | Da sua branch de trabalho |
+| `master` | Producao. O que a Vercel publica. | PR de `homolog` |
+| `homolog` | Homologacao / staging. Valida antes de subir. | PR de `develop` |
+| `develop` | Integracao. Onde o trabalho se junta. | merge direto da sua branch |
 
 > A branch de producao foi renomeada de `main` para `master` para seguir a
 > nomenclatura do Gitflow classico.
@@ -43,36 +44,46 @@ Formato **obrigatorio**: `tipo/<descricao-kebab>`
 - Exemplos validos: `feature/secao-depoimentos`, `fix/og-image-quebrada`,
   `chore/atualiza-deps`, `refactor/navbar-sem-dark-mode`, `docs/readme-docker`.
 
-| Tipo | Quando usar | Abre a partir de | PR para |
+| Tipo | Quando usar | Abre de | Entra em |
 |---|---|---|---|
-| `feature/`  | Secao/funcionalidade nova | `develop` | `develop` |
-| `fix/`      | Correcao de bug | `develop` | `develop` |
-| `chore/`    | Deps, config, tooling, limpeza | `develop` | `develop` |
-| `refactor/` | Melhorar codigo sem mudar comportamento | `develop` | `develop` |
-| `docs/`     | Documentacao | `develop` | `develop` |
-| `hotfix/`   | Urgencia em producao | `master` | `master` (e depois `develop`) |
+| `feature/`  | Secao/funcionalidade nova | `develop` | `develop` (merge direto) |
+| `fix/`      | Correcao de bug | `develop` | `develop` (merge direto) |
+| `chore/`    | Deps, config, tooling, limpeza | `develop` | `develop` (merge direto) |
+| `refactor/` | Melhorar codigo sem mudar comportamento | `develop` | `develop` (merge direto) |
+| `docs/`     | Documentacao | `develop` | `develop` (merge direto) |
+| `hotfix/`   | Urgencia em producao | `master` | PR para `master` (e replica em `develop`/`homolog`) |
 
 Regras:
 - Uma branch por assunto. Nunca dois assuntos na mesma branch.
 - Sempre abra a partir de `develop` **atualizado**
   (`git checkout develop && git pull origin develop`).
-- Apague a branch depois do merge (`git branch -d <branch>`).
+- Apague a branch depois do merge (`git branch -d <branch>` local + remoto).
 
-## Passo a passo
+## Passo a passo (trabalho -> develop)
 
 1. `git checkout develop && git pull origin develop`.
 2. `git checkout -b feature/descricao-curta`.
 3. Trabalhe em commits pequenos (Conventional Commits, abaixo).
-4. `npm run lint` e `npm run build` verdes antes de pedir revisao.
-5. `git push -u origin feature/descricao-curta`.
-6. Abra o PR: **base = `develop`** (nunca `master`/`homolog`, exceto `hotfix/`).
-7. Depois do merge: `git checkout develop && git pull && git branch -d <branch>`.
+4. `npm run lint` e `npm run build` verdes.
+5. `git push -u origin feature/descricao-curta` (opcional — util para o preview
+   da Vercel, mas nao obrigatorio).
+6. Merge em develop:
+   ```
+   git checkout develop && git pull origin develop
+   git merge --no-ff feature/descricao-curta
+   git push origin develop
+   ```
+7. Limpa: `git branch -d feature/descricao-curta` e
+   `git push origin --delete feature/descricao-curta`.
 
-## Promocao para producao
+## Promocao para producao (por PR)
 
-- `develop ▶ homolog`: PR quando um conjunto de mudancas esta pronto para validar.
-- `homolog ▶ master`: PR de release, depois de homologado. A Vercel publica `master`.
-- `hotfix/*`: sai de `master`, PR de volta para `master`, e replicado em `develop`.
+- **`develop ▶ homolog`**: abra PR (base `homolog`, a partir de `develop`) quando
+  um conjunto de mudancas esta pronto para validar. Revise o preview de homolog.
+- **`homolog ▶ master`**: PR de release (base `master`, a partir de `homolog`),
+  depois de homologado. A Vercel publica `master`.
+- **`hotfix/*`**: sai de `master`, PR de volta para `master`, e replicado em
+  `develop` e `homolog`.
 
 ## Mensagem de commit — Conventional Commits
 
@@ -90,9 +101,10 @@ Exemplos: `feat(hero): adiciona badge de disponibilidade` ·
 
 ## Erros comuns (nao faca)
 
-Abrir PR direto para `master` · `git push origin develop` direto · branch
-`minhas-alteracoes` (falta `tipo/`) · commit `"ajustes"` · dois assuntos na mesma
-branch · commitar `.env` ou segredo · abrir PR sem rodar `lint` + `build`.
+`git commit` direto em `develop`/`homolog`/`master` · promover `develop` para
+`master` pulando `homolog` · branch `minhas-alteracoes` (falta `tipo/`) · commit
+`"ajustes"` · dois assuntos na mesma branch · commitar `.env` ou segredo · merge
+em `develop` sem rodar `lint` + `build`.
 
 ---
 
@@ -102,7 +114,11 @@ branch · commitar `.env` ou segredo · abrir PR sem rodar `lint` + `build`.
 |---|---|
 | `git commit` com a branch atual em `master`, `main`, `homolog` ou `develop` | exit 2 |
 | Criar branch cujo nome **nao** casa `^(feature\|fix\|chore\|refactor\|docs\|hotfix)/[a-z0-9][a-z0-9-]*$` | exit 2 |
-| `gh pr create` com `--base master`/`main`/`homolog` a partir de branch que nao e `hotfix/` | exit 2 |
+| `gh pr create --base homolog` a partir de branch que nao e `develop` (nem `hotfix/`) | exit 2 |
+| `gh pr create --base master`/`main` a partir de branch que nao e `homolog` (nem `hotfix/`) | exit 2 |
+
+O merge `sua-branch ▶ develop` **nao** e bloqueado (o hook so barra `git commit`,
+nao `git merge`/`git push`).
 
 Excecao pontual — **token de arquivo de uso unico e com validade**:
 
@@ -118,5 +134,6 @@ Nao e silencioso: cada comando sob bypass emite um banner; o hook `Stop` lembra
 ao fim da resposta; um `git commit` com token armado dispara um aviso.
 
 **Nao e bloqueado por hook (depende de seguir esta regra):** abrir a branch a
-partir de `develop` atualizado; PR com base `develop`; rodar `lint`/`build` antes
-do PR; mensagem no padrao Conventional Commits; apagar a branch apos o merge.
+partir de `develop` atualizado; usar `--no-ff` no merge para develop; rodar
+`lint`/`build` antes do merge; mensagem no padrao Conventional Commits; apagar a
+branch (local + remoto) apos o merge; passar por `homolog` antes de `master`.

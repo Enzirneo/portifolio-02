@@ -8,9 +8,9 @@
 //   2. Criar branch (`git checkout -b`, `git switch -c`, `git branch <nome>`)
 //      cujo nome NAO casa  tipo/<descricao-kebab>  com
 //      tipo em {feature, fix, chore, refactor, docs, hotfix}.
-//   3. `gh pr create` / `git push` de PR com --base master/main/homolog a partir
-//      de branch que NAO e hotfix/... -> feature/fix/chore/refactor/docs abrem PR
-//      SEMPRE para develop; so hotfix/ vai para master.
+//   3. `gh pr create` fora das promocoes: PR --base homolog so a partir de
+//      develop; PR --base master/main so a partir de homolog (ou hotfix/).
+//      feature/fix/chore/... entram em develop por `git merge` direto, sem PR.
 //
 // NAO bloqueia nada alem de git/gh.
 // Excecao pontual (token de arquivo, NAO e env var):
@@ -39,7 +39,7 @@ function pendingBlockMessage() {
           `Nunca commite direto nelas. Crie uma branch de trabalho a partir de develop atualizado:\n` +
           `  git checkout develop && git pull origin develop\n` +
           `  git checkout -b feature/descricao-curta   (ou fix/ chore/ refactor/ docs/)\n` +
-          `Depois faca o commit e abra PR para "develop". Regra: .claude/rules/gitflow.md\n` +
+          `Depois faca o commit nela e um merge em "develop" (sem PR). Regra: .claude/rules/gitflow.md\n` +
           `PARE e alinhe com o usuario antes de contornar (.claude/rules/fluxo-de-trabalho.md).`
         );
       }
@@ -70,23 +70,29 @@ function pendingBlockMessage() {
       }
     }
 
-    // 3. gh pr create --base <permanente errada> a partir de branch != hotfix/
+    // 3. gh pr create so nas promocoes: develop -> homolog e homolog -> master.
+    //    (feature/fix/chore/... entram em develop por merge direto, sem PR.)
     if (/^gh\s+pr\s+create\b/.test(c)) {
       const baseMatch =
         c.match(/--base[=\s]+(\S+)/) || c.match(/-B[=\s]+(\S+)/);
       const base = baseMatch
         ? baseMatch[1].replace(/^['"]|['"]$/g, "")
         : null;
-      if (base && ["master", "main", "homolog"].includes(base)) {
-        const b = currentBranch();
-        if (!/^hotfix\//.test(b)) {
-          return (
-            `[Gitflow] PR bloqueado: base "--base ${base}" a partir de "${b}".\n` +
-            `PR de feature/fix/chore/refactor/docs vai SEMPRE para "develop". So "hotfix/..." abre PR para "master".\n` +
-            `Corrija para:  gh pr create --base develop ...\n` +
-            `Regra: .claude/rules/gitflow.md. PARE e confirme com o usuario.`
-          );
-        }
+      const b = currentBranch();
+      const isHotfix = /^hotfix\//.test(b);
+      if (base === "homolog" && b !== "develop" && !isHotfix) {
+        return (
+          `[Gitflow] PR bloqueado: "--base homolog" a partir de "${b}".\n` +
+          `A promocao para homolog e um PR de "develop". So "hotfix/..." tambem pode.\n` +
+          `Regra: .claude/rules/gitflow.md. PARE e confirme com o usuario.`
+        );
+      }
+      if ((base === "master" || base === "main") && b !== "homolog" && !isHotfix) {
+        return (
+          `[Gitflow] PR bloqueado: "--base ${base}" a partir de "${b}".\n` +
+          `A promocao para producao e um PR de "homolog". So "hotfix/..." tambem pode.\n` +
+          `Regra: .claude/rules/gitflow.md. PARE e confirme com o usuario.`
+        );
       }
     }
   }

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f3ee;
+  --background: #f1eadb;
   --foreground: #161616;
   --accent: #3f7f5f;
   --accent-secondary: #5d8f73;
@@ -24,37 +24,6 @@ html {
   overscroll-behavior-y: none;
   scrollbar-color: var(--accent) rgba(15, 23, 42, 0.08);
   scrollbar-width: thin;
-}
-
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
-  overflow-x: hidden;
-  overscroll-behavior-y: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: clip;
-}
-
-.lenis.lenis-smooth iframe {
-  pointer-events: none;
 }
 
 /* Custom scrollbar */
@@ -87,4 +56,22 @@ body {
 ::selection {
   background: var(--accent);
   color: white;
+}
+
+/* Foco visivel para quem navega por teclado */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Respeita quem pede menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
