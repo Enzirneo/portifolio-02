@@ -6,6 +6,7 @@ export const ptBR = {
     contact: "contato",
     cv: "CV",
     languageToggle: "Alternar idioma",
+    skipToContent: "Pular para o conteúdo",
   },
   hero: {
     badge: "Disponível para oportunidades",
@@ -19,6 +20,8 @@ export const ptBR = {
     ctaPrimary: "Fale comigo",
     ctaSecondary: "Ver projetos",
     ctaResume: "Ver CV",
+    proofLabel: "No ar agora",
+      proofText: "Flwxo, SaaS de gestão para clínicas",
   },
   about: {
     srOnly: "Sobre mim",
@@ -154,6 +157,7 @@ export const ptBR = {
     ],
     responseTimeLabel: "Tempo de resposta",
     responseTimeValue: "Em até 24-48 horas",
+    directTitle: "Contato direto",
   },
   cta: {
     line1: "Vamos criar",

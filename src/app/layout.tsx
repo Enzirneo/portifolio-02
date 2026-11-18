@@ -9,6 +9,7 @@ import ConsoleEasterEgg from "@/shared/components/layout/ConsoleEasterEgg";
 import { SmoothScroll } from "@/shared/components/layout";
 import { LanguageProvider } from "@/shared/i18n/LanguageProvider";
 import { SITE_URL } from "@/shared/lib/site";
+import { translations } from "@/shared/i18n/translations";
 import {
   getLanguageFromAcceptLanguage,
   isLanguage,
@@ -190,6 +191,12 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <LanguageProvider initialLanguage={language}>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-[#2f6b57] focus:px-5 focus:py-3 focus:text-sm focus:font-bold focus:text-white"
+          >
+            {translations[language].nav.skipToContent}
+          </a>
           <ConsoleEasterEgg />
           <SmoothScroll />
           {children}
