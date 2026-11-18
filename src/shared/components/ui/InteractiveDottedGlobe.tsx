@@ -25,7 +25,7 @@ const DEG_TO_RAD = Math.PI / 180;
 const MAX_TILT = 0.75;
 
 export function InteractiveDottedGlobe({
-  mapSamples = 22000,
+  mapSamples = 16000,
   marker = { lat: -14.235, lng: -51.925, size: 0.18 },
   initialLongitude = -52,
   initialLatitude = -6,
@@ -62,7 +62,7 @@ export function InteractiveDottedGlobe({
     const canvas = canvasRef.current;
     if (!canvas || !inView) return;
 
-    const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
     let size = 0;
 
     const updateSize = () => {

@@ -17,7 +17,6 @@
 - **TypeScript**
 - **Tailwind CSS 4**
 - **GSAP** — animações e scroll-triggered reveals
-- **Lenis** — smooth scroll (desativado em toque / `prefers-reduced-motion`)
 - **cobe** — globo interativo na seção "Sobre"
 - **react-github-calendar** — heatmap de contribuições
 - **@vercel/analytics**

@@ -2,7 +2,6 @@
 
 import {
   createContext,
-  startTransition,
   useCallback,
   useContext,
   useEffect,
@@ -57,9 +56,7 @@ export function LanguageProvider({
 
       document.documentElement.lang = next;
       persistLanguagePreference(next);
-      startTransition(() => {
-        setLanguageState(next);
-      });
+      setLanguageState(next);
     },
     [language]
   );
