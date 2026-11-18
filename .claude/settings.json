@@ -17,17 +17,17 @@
           { "type": "command", "command": "node \".claude/hooks/stop-bypass-audit.js\"" }
         ]
       }
-    ],
-    "$disabled_tdd": {
-      "$comment": "Cole estes dois blocos em PreToolUse e PostToolUse para ligar o TDD. Ver .claude/rules/tdd.md.",
-      "PreToolUse": {
-        "matcher": "Edit|Write",
-        "hooks": [{ "type": "command", "command": "node \".claude/hooks/pre-edit-tdd.js\"" }]
-      },
-      "PostToolUse": {
-        "matcher": "Edit|Write",
-        "hooks": [{ "type": "command", "command": "node \".claude/hooks/post-edit-verify.js\"" }]
-      }
+    ]
+  },
+  "$disabled_tdd": {
+    "$comment": "Cole estes dois blocos em PreToolUse e PostToolUse (dentro de hooks) para ligar o TDD. Ver .claude/rules/tdd.md.",
+    "PreToolUse": {
+      "matcher": "Edit|Write",
+      "hooks": [{ "type": "command", "command": "node \".claude/hooks/pre-edit-tdd.js\"" }]
+    },
+    "PostToolUse": {
+      "matcher": "Edit|Write",
+      "hooks": [{ "type": "command", "command": "node \".claude/hooks/post-edit-verify.js\"" }]
     }
   }
 }
