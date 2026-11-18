@@ -148,4 +148,4 @@ mais ou menos o que voce esperava").
   (`src/shared/lib/utils.ts`) para classes condicionais.
 - **`any` proibido** (eslint ja barra). Tipos em `*.ts` ao lado do uso.
 - **Dados estaticos** (projetos, skills, traducoes) em `src/shared/data` /
-  `src/shared/lib/i18n.ts` — sem logica, so estrutura.
+  `src/shared/i18n/translations/` — sem logica, so estrutura.
