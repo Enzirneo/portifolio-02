@@ -3,7 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ArrowUpRight } from "lucide-react";
+import { projects } from "@/shared/data/projects";
 import { useTranslations } from "@/shared/i18n/LanguageProvider";
+
+const liveProject = projects.find((project) => project.status === "live");
+
+function prefersReducedMotion() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
 
 export function HeroSection() {
   const { copy, language } = useTranslations();
@@ -15,6 +23,7 @@ export function HeroSection() {
   const secondWordRef = useRef<HTMLSpanElement>(null);
   const quoteRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const proofRef = useRef<HTMLAnchorElement>(null);
 
   const roles = copy.hero.roles;
   const [roleIndex, setRoleIndex] = useState(0);
@@ -26,6 +35,8 @@ export function HeroSection() {
 
   useGSAP(
     () => {
+      if (prefersReducedMotion()) return;
+
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
       tl.from(badgeRef.current, {
@@ -70,12 +81,22 @@ export function HeroSection() {
           },
           "-=0.6"
         )
-        ;
+        .from(
+          proofRef.current,
+          {
+            y: 20,
+            opacity: 0,
+            duration: 0.8,
+          },
+          "-=0.5"
+        );
     },
     { scope: containerRef }
   );
 
   useEffect(() => {
+    if (prefersReducedMotion()) return;
+
     let frameId: number | null = null;
 
     const getRoleTargets = () =>
@@ -242,6 +263,25 @@ export function HeroSection() {
             {copy.hero.ctaSecondary}
           </a>
         </div>
+
+        {liveProject?.weburl && (
+          <a
+            ref={proofRef}
+            href={liveProject.weburl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mt-8 inline-flex items-center gap-3 rounded-full border border-black/8 bg-white/70 px-4 py-2 text-sm text-black/75 transition-colors hover:border-[#2f6b57]/30 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2f6b57] sm:mt-10"
+          >
+            <span className="rounded-full bg-emerald-600/12 px-2.5 py-0.5 text-[11px] font-bold tracking-[0.08em] text-emerald-900 uppercase">
+              {copy.hero.proofLabel}
+            </span>
+            <span className="font-medium">{copy.hero.proofText}</span>
+            <ArrowUpRight
+              className="h-4 w-4 text-black/45 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#2f6b57]"
+              aria-hidden="true"
+            />
+          </a>
+        )}
 
       </div>
 

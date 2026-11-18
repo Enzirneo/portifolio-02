@@ -8,6 +8,7 @@ export const en: Translation = {
     contact: "contact",
     cv: "CV",
     languageToggle: "Switch language",
+    skipToContent: "Skip to content",
   },
   hero: {
     badge: "Available for work",
@@ -21,6 +22,8 @@ export const en: Translation = {
     ctaPrimary: "Start a project",
     ctaSecondary: "View projects",
     ctaResume: "View CV",
+    proofLabel: "Live now",
+      proofText: "Flwxo, a management SaaS for clinics",
   },
   about: {
     srOnly: "About Me",
@@ -154,6 +157,7 @@ export const en: Translation = {
     ],
     responseTimeLabel: "Response Time",
     responseTimeValue: "Within 24-48 Hours",
+    directTitle: "Direct contact",
   },
   cta: {
     line1: "Let's create",

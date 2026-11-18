@@ -197,6 +197,7 @@ export function Navbar() {
                     key={item.name}
                     href={item.href}
                     onClick={(e) => handleLinkClick(e, item)}
+                    aria-current={activeSection === item.name ? "location" : undefined}
                     className={`relative capitalize text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] whitespace-nowrap ${
                       activeSection === item.name
                         ? "text-white bg-[#2f6b57] shadow-[0_8px_20px_rgba(47,107,87,0.22)]"
