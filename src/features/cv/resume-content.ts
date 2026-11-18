@@ -190,6 +190,13 @@ export const cvContent: Record<Language, CvContent> = {
     projectsTitle: "Projetos selecionados",
     projects: [
       {
+        year: "Atual",
+        title: "Flwxo",
+        description:
+          "SaaS de gestão para clínicas de odontologia, HOF e estética, em produção. Landing page e sistema projetados e desenvolvidos por mim: agenda, prontuário com odontograma, orçamentos com aceite digital, documentos, financeiro e portal do paciente.",
+        stack: ["Full stack", "SaaS", "UX/UI"],
+      },
+      {
         year: "2026",
         title: "NeuroSync",
         description:
@@ -379,6 +386,13 @@ export const cvContent: Record<Language, CvContent> = {
     ],
     projectsTitle: "Selected projects",
     projects: [
+      {
+        year: "Current",
+        title: "Flwxo",
+        description:
+          "Management SaaS for dental, facial-aesthetics and aesthetics clinics, running in production. Landing page and system designed and built by me: scheduling, charts with odontogram, quotes with digital acceptance, documents, finance and a patient portal.",
+        stack: ["Full stack", "SaaS", "UX/UI"],
+      },
       {
         year: "2026",
         title: "NeuroSync",

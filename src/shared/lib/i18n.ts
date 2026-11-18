@@ -54,15 +54,14 @@ export const translations = {
       badge: "Disponível para oportunidades",
       roles: [
         { first: "Desenvolvedor", second: "Full Stack." },
-        { first: "Arquitetura", second: "de Software." },
+        { first: "Front-end", second: "& UX/UI." },
         { first: "Soluções", second: "orientadas a UX." },
       ],
       quote:
-        "Construo aplicações web e sistemas escaláveis unindo frontend, backend, arquitetura e experiência do usuário.",
+        "Desenvolvedor full stack júnior com foco em front-end e UX. Criei a Flwxo, um SaaS para clínicas, e hoje atuo como Analista de Sistemas.",
       ctaPrimary: "Fale comigo",
       ctaSecondary: "Ver projetos",
       ctaResume: "Ver CV",
-      ctaResumeSoon: "Página de CV em breve",
     },
     about: {
       srOnly: "Sobre mim",
@@ -81,14 +80,14 @@ export const translations = {
       },
       whoParagraph2: {
         prefix:
-          "Atuo com desenvolvimento full stack e arquitetura de software, com forte atenção ao ecossistema de front-end, especialmente ",
+          "Hoje sou Analista de Sistemas na Invest Smart XP e atuo como designer web e UX freelancer, com forte atenção ao front-end, especialmente ",
         linkNext: "Next.js",
         middle1: ", ",
         linkTypescript: "TypeScript",
         middle2: " e ",
         linkTailwind: "Tailwind CSS",
         suffix:
-          ". Busco criar interfaces claras, performáticas e sustentáveis para crescer junto com o produto.",
+          ". Também criei a Flwxo, um SaaS para clínicas, da landing page ao sistema. Faço pós em Arquitetura de Software para construir produtos que escalam.",
       },
       tags: [
         "TypeScript",
@@ -115,7 +114,7 @@ export const translations = {
       prefix: "Trabalho de forma ",
       linkAsync: "async-first",
       middle:
-        " e tenho facilidade para colaborar com equipes nos fusos dos Brasil e times globais. Retorno em 24-48h nas ",
+        " e tenho facilidade para colaborar com equipes no fuso do Brasil e times globais. Retorno em 24-48h nas ",
       linkCommunication: "comunicações",
       suffix: ".",
     },
@@ -126,41 +125,9 @@ export const translations = {
       label: "CONSTRUINDO EXPERIÊNCIAS DIGITAIS",
       titlePrimary: "Vitrine",
       titleAccent: "de Projetos",
-      marquee: "PROJETOS SELECIONADOS",
       source: "Código",
       liveDemo: "Demo",
-      fallbackRole: "Desenvolvimento Full Stack",
       footer: "E outros projetos em andamento.",
-      items: [
-        {
-          description:
-            "Website institucional desenvolvido em WordPress para uma empresa fictícia de arquitetura, com foco na apresentação da marca, dos serviços e da proposta de valor do negócio. O projeto explora organização visual, estruturação de conteúdo e navegação clara, simulando a presença digital de uma empresa do setor.",
-          outcome:
-            "Apresentação digital clara e profissional para uma empresa fictícia de arquitetura.",
-          role: "Desenvolvimento Front-end",
-        },
-        {
-          description:
-            "Plataforma web desenvolvida em React para organização de times de Esports, com foco em componentização, reaproveitamento de componentes e experiência de uso simples e dinâmica. O projeto permite estruturar equipes de forma visual e interativa.",
-          outcome:
-            "Organização prática de equipes e jogadores em uma interface interativa.",
-          role: "Desenvolvimento Front-end",
-        },
-        {
-          description:
-            "Aplicação web desenvolvida com React e Vite que consome a API do Pexels para exibição dinâmica de imagens. O projeto destaca integração com API externa, reutilização de componentes e construção de uma interface voltada para busca e experiência visual do usuário.",
-          outcome:
-            "Busca e visualização de imagens em uma galeria moderna e dinâmica.",
-          role: "Desenvolvimento Front-end",
-        },
-        {
-          description:
-            "Landing page moderna desenvolvida em React e Vite para um headset fictício voltado à neurotecnologia. O projeto foca em apresentação de produto, organização de seções estratégicas, responsividade e comunicação visual mais imersiva.",
-          outcome:
-            "Apresentação visual atrativa de um produto fictício de tecnologia.",
-          role: "Desenvolvimento Front-end",
-        },
-      ],
     },
     github: {
       label: "MINHA JORNADA NO CÓDIGO",
@@ -284,17 +251,15 @@ export const translations = {
     hero: {
       badge: "Available for work",
       roles: [
-        { first: "Software", second: "Engineer." },
-        { first: "Software", second: "Developer." },
-        { first: "Front-End", second: "Developer." },
-        { first: "Mobile", second: "Developer." },
+        { first: "Full-Stack", second: "Developer." },
+        { first: "Front-End", second: "& UX/UI." },
+        { first: "UX-driven", second: "Solutions." },
       ],
       quote:
-        "I build full-stack web and mobile applications with a focus on performance, scalability, and user experience.",
+        "Junior full-stack developer focused on front-end and UX. I built Flwxo, a SaaS for clinics, and currently work as a Systems Analyst.",
       ctaPrimary: "Start a project",
       ctaSecondary: "View projects",
       ctaResume: "View CV",
-      ctaResumeSoon: "CV page coming soon",
     },
     about: {
       srOnly: "About Me",
@@ -313,13 +278,13 @@ export const translations = {
       },
       whoParagraph2: {
         prefix:
-          "I specialize in full-stack development with a heavy focus on the frontend ecosystem—specifically ",
+          "I am a Systems Analyst at Invest Smart XP and a freelance web and UX designer, with a strong focus on the front end—specifically ",
         linkNext: "Next.js",
         middle1: ", ",
         linkTypescript: "TypeScript",
         middle2: " and ",
         linkTailwind: "Tailwind",
-        suffix: ". I love crafting interfaces that feel instant and alive.",
+        suffix: ". I also built Flwxo, a SaaS for clinics, from the landing page to the system. I am pursuing a postgraduate degree in Software Architecture to build products that scale.",
       },
       tags: [
         "TypeScript",
@@ -350,47 +315,15 @@ export const translations = {
         linkCommunication: "communications",
         suffix: ".",
       },
-      globalBadge: "BR / US overlap Friendly",
+      globalBadge: "Remote-friendly · BR / US overlap",
     },
     projects: {
       label: "CRAFTING DIGITAL EXPERIENCES",
       titlePrimary: "Venture",
       titleAccent: "Showcase",
-      marquee: " PROJECTS",
       source: "Source",
       liveDemo: "Live Demo",
-      fallbackRole: "Full Stack Development",
       footer: "And other projects in progress.",
-      items: [
-        {
-          description:
-            "Institutional website built with WordPress for a fictional architecture company, focused on presenting the brand, its services, and the business value proposition. The project explores visual organization, content structure, and clear navigation, simulating the digital presence of a company in this sector.",
-          outcome:
-            "A clear and professional digital presence for a fictional architecture company.",
-          role: "Front-End Development",
-        },
-        {
-          description:
-            "Web platform developed with React for organizing Esports teams, focused on component-based structure, reusable components, and a simple, dynamic user experience. The project allows teams to be organized in a visual and interactive way.",
-          outcome:
-            "Practical team and player organization through an interactive interface.",
-          role: "Front-End Development",
-        },
-        {
-          description:
-            "Web application built with React and Vite that integrates the Pexels API for dynamic image display. The project highlights external API integration, reusable components, and an interface designed around search and visual experience.",
-          outcome:
-            "Image search and visualization in a modern and dynamic gallery.",
-          role: "Front-End Development",
-        },
-        {
-          description:
-            "Modern landing page developed with React and Vite for a fictional neurotechnology headset. The project focuses on product presentation, strategic section structure, responsiveness, and a more immersive visual communication.",
-          outcome:
-            "An attractive visual presentation for a fictional technology product.",
-          role: "Front-End Development",
-        },
-      ],
     },
     github: {
       label: "MY CODE JOURNEY",
