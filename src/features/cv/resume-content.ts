@@ -224,13 +224,13 @@ export const cvContent: Record<Language, CvContent> = {
           "TypeScript",
           "React",
           "Angular",
-          "Vue",
+          "Vue (básico)",
           "Responsividade e acessibilidade (WCAG)",
         ],
       },
       {
         title: "Back-end & dados",
-        items: ["Java", "Python", "Go", "FastAPI", "Node.js", "SQL / MySQL", "PostgreSQL"],
+        items: ["Java", "Python", "Go (básico)", "FastAPI", "Node.js", "SQL / MySQL", "PostgreSQL"],
       },
       {
         title: "UX & Produto",
@@ -416,13 +416,13 @@ export const cvContent: Record<Language, CvContent> = {
           "TypeScript",
           "React",
           "Angular",
-          "Vue",
+          "Vue (basic)",
           "Responsiveness & accessibility (WCAG)",
         ],
       },
       {
         title: "Back-end & data",
-        items: ["Java", "Python", "Go", "FastAPI", "Node.js", "SQL / MySQL", "PostgreSQL"],
+        items: ["Java", "Python", "Go (basic)", "FastAPI", "Node.js", "SQL / MySQL", "PostgreSQL"],
       },
       {
         title: "UX & Product",

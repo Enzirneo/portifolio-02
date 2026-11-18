@@ -8,13 +8,15 @@ import {
   SiPostgresql, SiMongodb, SiPrisma, SiPnpm, SiBun, SiGit, SiGithub, SiVercel, 
   SiAmazon, SiDocker, SiExpo, SiClerk, SiLinux, SiRust, SiFlutter, SiBlender, 
   SiAdobeillustrator, SiGodotengine, SiZod, SiBootstrap, SiWordpress, SiN8N, SiSupabase,
-  SiPython, SiFigma, SiOpenjdk
+  SiPython, SiFigma, SiOpenjdk, SiAngular, SiFastapi
 } from "react-icons/si";
 import { GiBearFace } from "react-icons/gi"; // For Zustand (Bear)
 import { useTranslations } from "@/shared/i18n/LanguageProvider";
 
 const skillIcons: Record<string, ReactNode> = {
   JavaScript: <SiJavascript />,
+  Angular: <SiAngular />,
+  FastAPI: <SiFastapi />,
   TypeScript: <SiTypescript />,
   PHP: <SiPhp />,
   HTML: <SiHtml5 />,
@@ -59,6 +61,8 @@ const skillIcons: Record<string, ReactNode> = {
 
 const skillColors: Record<string, { bg: string; text: string; color: string }> = {
   JavaScript: { bg: "bg-[#F7DF1E]/10", text: "text-[#F7DF1E]", color: "#F7DF1E" },
+  Angular: { bg: "bg-[#DD0031]/10", text: "text-[#DD0031]", color: "#DD0031" },
+  FastAPI: { bg: "bg-[#009688]/10", text: "text-[#009688]", color: "#009688" },
   TypeScript: { bg: "bg-[#3178C6]/10", text: "text-[#3178C6]", color: "#3178C6" },
   PHP: { bg: "bg-[#777BB4]/10", text: "text-[#777BB4]", color: "#777BB4" },
   HTML: { bg: "bg-[#E34F26]/10", text: "text-[#E34F26]", color: "#E34F26" },
