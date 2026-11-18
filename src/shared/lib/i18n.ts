@@ -54,11 +54,11 @@ export const translations = {
       badge: "Disponível para oportunidades",
       roles: [
         { first: "Desenvolvedor", second: "Full Stack." },
-        { first: "Arquitetura", second: "de Software." },
+        { first: "Front-end", second: "& UX/UI." },
         { first: "Soluções", second: "orientadas a UX." },
       ],
       quote:
-        "Construo aplicações web e sistemas escaláveis unindo frontend, backend, arquitetura e experiência do usuário.",
+        "Desenvolvedor full stack júnior com foco em front-end e UX. Criei a Flwxo, um SaaS para clínicas, e hoje atuo como Analista de Sistemas.",
       ctaPrimary: "Fale comigo",
       ctaSecondary: "Ver projetos",
       ctaResume: "Ver CV",
@@ -80,14 +80,14 @@ export const translations = {
       },
       whoParagraph2: {
         prefix:
-          "Atuo com desenvolvimento full stack e arquitetura de software, com forte atenção ao ecossistema de front-end, especialmente ",
+          "Hoje sou Analista de Sistemas na Invest Smart XP e atuo como designer web e UX freelancer, com forte atenção ao front-end, especialmente ",
         linkNext: "Next.js",
         middle1: ", ",
         linkTypescript: "TypeScript",
         middle2: " e ",
         linkTailwind: "Tailwind CSS",
         suffix:
-          ". Busco criar interfaces claras, performáticas e sustentáveis para crescer junto com o produto.",
+          ". Também criei a Flwxo, um SaaS para clínicas, da landing page ao sistema. Faço pós em Arquitetura de Software para construir produtos que escalam.",
       },
       tags: [
         "TypeScript",
@@ -114,7 +114,7 @@ export const translations = {
       prefix: "Trabalho de forma ",
       linkAsync: "async-first",
       middle:
-        " e tenho facilidade para colaborar com equipes nos fusos dos Brasil e times globais. Retorno em 24-48h nas ",
+        " e tenho facilidade para colaborar com equipes no fuso do Brasil e times globais. Retorno em 24-48h nas ",
       linkCommunication: "comunicações",
       suffix: ".",
     },
@@ -251,13 +251,12 @@ export const translations = {
     hero: {
       badge: "Available for work",
       roles: [
-        { first: "Software", second: "Engineer." },
-        { first: "Software", second: "Developer." },
-        { first: "Front-End", second: "Developer." },
-        { first: "Mobile", second: "Developer." },
+        { first: "Full-Stack", second: "Developer." },
+        { first: "Front-End", second: "& UX/UI." },
+        { first: "UX-driven", second: "Solutions." },
       ],
       quote:
-        "I build full-stack web and mobile applications with a focus on performance, scalability, and user experience.",
+        "Junior full-stack developer focused on front-end and UX. I built Flwxo, a SaaS for clinics, and currently work as a Systems Analyst.",
       ctaPrimary: "Start a project",
       ctaSecondary: "View projects",
       ctaResume: "View CV",
@@ -279,13 +278,13 @@ export const translations = {
       },
       whoParagraph2: {
         prefix:
-          "I specialize in full-stack development with a heavy focus on the frontend ecosystem—specifically ",
+          "I am a Systems Analyst at Invest Smart XP and a freelance web and UX designer, with a strong focus on the front end—specifically ",
         linkNext: "Next.js",
         middle1: ", ",
         linkTypescript: "TypeScript",
         middle2: " and ",
         linkTailwind: "Tailwind",
-        suffix: ". I love crafting interfaces that feel instant and alive.",
+        suffix: ". I also built Flwxo, a SaaS for clinics, from the landing page to the system. I am pursuing a postgraduate degree in Software Architecture to build products that scale.",
       },
       tags: [
         "TypeScript",
@@ -316,7 +315,7 @@ export const translations = {
         linkCommunication: "communications",
         suffix: ".",
       },
-      globalBadge: "BR / US overlap Friendly",
+      globalBadge: "Remote-friendly · BR / US overlap",
     },
     projects: {
       label: "CRAFTING DIGITAL EXPERIENCES",

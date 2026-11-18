@@ -46,44 +46,46 @@ const metadataByLanguage: Record<
   }
 > = {
   "pt-BR": {
-    titleDefault: "Enzo Bispo | Portfólio",
-    titleTemplate: "%s | Portfolio do Bispo",
+    titleDefault: "Enzo Bispo | Desenvolvedor Full Stack",
+    titleTemplate: "%s | Enzo Bispo",
     description:
-      "Explore o portfolio full stack do Bispo: projetos com Next.js, TypeScript e automacao. Veja trabalhos em destaque, repositorios e entre em contato.",
+      "Portfólio de Enzo Bispo, desenvolvedor full stack júnior com foco em front-end e UX/UI. Conheça a Flwxo, um SaaS para clínicas, e outros projetos em React e Next.js.",
     keywords: [
       "desenvolvedor full stack",
-      "portfolio next.js",
+      "desenvolvedor front-end",
+      "portfólio next.js",
       "projetos typescript",
-      "automacao",
+      "ux/ui design",
       "desenvolvimento web",
       "react",
       "engenheiro de software",
     ],
     openGraphLocale: "pt_BR",
-    siteName: "Portfolio Bispo",
+    siteName: "Enzo Bispo",
     twitterTitle: "Enzo Villela Bispo | Desenvolvedor Full Stack",
     jsonLdDescription:
-      "Desenvolvedor full stack focado em criar aplicacoes web rapidas, confiaveis e bem projetadas com Next.js e TypeScript.",
+      "Desenvolvedor full stack júnior focado em front-end e UX, criando aplicações web rápidas, confiáveis e bem projetadas com React, Next.js e TypeScript.",
   },
   en: {
-    titleDefault: "Enzo Bispo | Portfolio",
-    titleTemplate: "%s | Bispo's Portfolio",
+    titleDefault: "Enzo Bispo | Full-Stack Developer",
+    titleTemplate: "%s | Enzo Bispo",
     description:
-      "Explore Bispo's full-stack developer portfolio: Next.js, TypeScript, and automation projects. View featured work, repositories, and get in touch.",
+      "Enzo Bispo's portfolio: junior full-stack developer focused on front-end and UX/UI. See Flwxo, a SaaS for clinics, and other React and Next.js projects.",
     keywords: [
       "full-stack developer",
+      "front-end developer",
       "next.js portfolio",
       "typescript projects",
-      "automation",
+      "ux/ui design",
       "web development",
       "react",
       "software engineer",
     ],
     openGraphLocale: "en_US",
-    siteName: "Enzo Bispo Portfolio",
+    siteName: "Enzo Bispo",
     twitterTitle: "Enzo Villela Bispo | Full-Stack Developer",
     jsonLdDescription:
-      "Full-stack developer focused on building fast, reliable, and well-crafted web applications with Next.js and TypeScript.",
+      "Junior full-stack developer focused on front-end and UX, building fast, reliable, well-crafted web applications with React, Next.js and TypeScript.",
   },
 };
 
@@ -164,13 +166,15 @@ export default async function RootLayout({
       "https://www.linkedin.com/in/enzo-bispo-68738a24b/",
     ],
     jobTitle:
-      language === "pt-BR" ? "Desenvolvedor Full Stack" : "Full-Stack Developer",
+      language === "pt-BR"
+        ? "Desenvolvedor Full Stack Júnior"
+        : "Junior Full-Stack Developer",
     knowsAbout: [
       "Next.js",
       "React",
       "TypeScript",
-      "Python",
       "Tailwind CSS",
+      "UX/UI Design",
       "Web Development",
     ],
     description: metadataCopy.jsonLdDescription,
