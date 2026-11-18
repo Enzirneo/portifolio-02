@@ -62,7 +62,6 @@ export const translations = {
       ctaPrimary: "Fale comigo",
       ctaSecondary: "Ver projetos",
       ctaResume: "Ver CV",
-      ctaResumeSoon: "Página de CV em breve",
     },
     about: {
       srOnly: "Sobre mim",
@@ -126,41 +125,9 @@ export const translations = {
       label: "CONSTRUINDO EXPERIÊNCIAS DIGITAIS",
       titlePrimary: "Vitrine",
       titleAccent: "de Projetos",
-      marquee: "PROJETOS SELECIONADOS",
       source: "Código",
       liveDemo: "Demo",
-      fallbackRole: "Desenvolvimento Full Stack",
       footer: "E outros projetos em andamento.",
-      items: [
-        {
-          description:
-            "Website institucional desenvolvido em WordPress para uma empresa fictícia de arquitetura, com foco na apresentação da marca, dos serviços e da proposta de valor do negócio. O projeto explora organização visual, estruturação de conteúdo e navegação clara, simulando a presença digital de uma empresa do setor.",
-          outcome:
-            "Apresentação digital clara e profissional para uma empresa fictícia de arquitetura.",
-          role: "Desenvolvimento Front-end",
-        },
-        {
-          description:
-            "Plataforma web desenvolvida em React para organização de times de Esports, com foco em componentização, reaproveitamento de componentes e experiência de uso simples e dinâmica. O projeto permite estruturar equipes de forma visual e interativa.",
-          outcome:
-            "Organização prática de equipes e jogadores em uma interface interativa.",
-          role: "Desenvolvimento Front-end",
-        },
-        {
-          description:
-            "Aplicação web desenvolvida com React e Vite que consome a API do Pexels para exibição dinâmica de imagens. O projeto destaca integração com API externa, reutilização de componentes e construção de uma interface voltada para busca e experiência visual do usuário.",
-          outcome:
-            "Busca e visualização de imagens em uma galeria moderna e dinâmica.",
-          role: "Desenvolvimento Front-end",
-        },
-        {
-          description:
-            "Landing page moderna desenvolvida em React e Vite para um headset fictício voltado à neurotecnologia. O projeto foca em apresentação de produto, organização de seções estratégicas, responsividade e comunicação visual mais imersiva.",
-          outcome:
-            "Apresentação visual atrativa de um produto fictício de tecnologia.",
-          role: "Desenvolvimento Front-end",
-        },
-      ],
     },
     github: {
       label: "MINHA JORNADA NO CÓDIGO",
@@ -294,7 +261,6 @@ export const translations = {
       ctaPrimary: "Start a project",
       ctaSecondary: "View projects",
       ctaResume: "View CV",
-      ctaResumeSoon: "CV page coming soon",
     },
     about: {
       srOnly: "About Me",
@@ -356,41 +322,9 @@ export const translations = {
       label: "CRAFTING DIGITAL EXPERIENCES",
       titlePrimary: "Venture",
       titleAccent: "Showcase",
-      marquee: " PROJECTS",
       source: "Source",
       liveDemo: "Live Demo",
-      fallbackRole: "Full Stack Development",
       footer: "And other projects in progress.",
-      items: [
-        {
-          description:
-            "Institutional website built with WordPress for a fictional architecture company, focused on presenting the brand, its services, and the business value proposition. The project explores visual organization, content structure, and clear navigation, simulating the digital presence of a company in this sector.",
-          outcome:
-            "A clear and professional digital presence for a fictional architecture company.",
-          role: "Front-End Development",
-        },
-        {
-          description:
-            "Web platform developed with React for organizing Esports teams, focused on component-based structure, reusable components, and a simple, dynamic user experience. The project allows teams to be organized in a visual and interactive way.",
-          outcome:
-            "Practical team and player organization through an interactive interface.",
-          role: "Front-End Development",
-        },
-        {
-          description:
-            "Web application built with React and Vite that integrates the Pexels API for dynamic image display. The project highlights external API integration, reusable components, and an interface designed around search and visual experience.",
-          outcome:
-            "Image search and visualization in a modern and dynamic gallery.",
-          role: "Front-End Development",
-        },
-        {
-          description:
-            "Modern landing page developed with React and Vite for a fictional neurotechnology headset. The project focuses on product presentation, strategic section structure, responsiveness, and a more immersive visual communication.",
-          outcome:
-            "An attractive visual presentation for a fictional technology product.",
-          role: "Front-End Development",
-        },
-      ],
     },
     github: {
       label: "MY CODE JOURNEY",

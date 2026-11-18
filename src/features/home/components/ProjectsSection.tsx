@@ -12,7 +12,7 @@ import { useTranslations } from "@/shared/i18n/LanguageProvider";
 gsap.registerPlugin(ScrollTrigger);
 
 export function ProjectsSection() {
-  const { copy } = useTranslations();
+  const { copy, language } = useTranslations();
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
@@ -88,8 +88,8 @@ export function ProjectsSection() {
         </div>
         {/* Projects Stack */}
         <div ref={projectsRef} className="flex flex-col gap-16 sm:gap-24 md:gap-32">
-          {projects.slice(0, 4).map((project, index) => {
-            const localized = copy.projects.items[index];
+          {projects.map((project) => {
+            const localized = project.copy[language];
             const galleryImages = project.images ?? [];
             const hasGallery = galleryImages.length > 0;
             return (
@@ -107,28 +107,26 @@ export function ProjectsSection() {
                    </div>
 
                    <p className="text-base leading-relaxed text-[#4b4b4b] sm:text-lg">
-                      {localized?.description ?? project.description}
+                      {localized.description}
                    </p>
 
                    {/* Features / Outcome List */}
                    <div className="my-2 flex flex-col gap-3 sm:my-4">
-                      {(localized?.outcome ?? project.outcome) && (
-                        <div className="flex items-start gap-3">
+                      <div className="flex items-start gap-3">
                            <Star className="w-5 h-5 text-[#2f6b57] shrink-0 mt-1" />
-                           <p className="text-[#4f4f4f]">{localized?.outcome ?? project.outcome}</p>
+                           <p className="text-[#4f4f4f]">{localized.outcome}</p>
                         </div>
-                      )}
                        <div className="flex items-start gap-3">
                            <Code2 className="w-5 h-5 text-[#2f6b57] shrink-0 mt-1" />
                            <p className="text-[#4f4f4f]">
-                             {localized?.role || project.role || copy.projects.fallbackRole}
+                             {localized.role}
                            </p>
                         </div>
                    </div>
 
                    {/* Tech Stack Buttons */}
                    <div className="mt-2 flex flex-wrap gap-2.5 sm:gap-3">
-                      {project.tech?.map((tech) => (
+                      {project.tech.map((tech) => (
                         <div 
                           key={tech} 
                           className="px-4 py-2 bg-white border border-black/8 rounded-full text-[#3f3f3f] text-sm font-medium flex items-center gap-2 transition-colors cursor-default shadow-[0_8px_24px_rgba(15,23,42,0.05)]"
@@ -238,24 +236,28 @@ export function ProjectsSection() {
 
                   {/* External Links below image for mobile/easy access */}
                    <div className="mt-4 flex justify-end gap-4 sm:mt-6">
-                      <a 
-                        href={project.url}
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm text-black/68 hover:text-[#2f6b57] transition-colors"
-                      >
-                         <GithubIcon className="w-5 h-5" />
-                         <span>{copy.projects.source}</span>
-                      </a>
-                      <a 
-                         href={project.weburl || project.url}
-                         target="_blank" 
-                         rel="noopener noreferrer"
-                         className="flex items-center gap-2 text-sm text-black/68 hover:text-[#2f6b57] transition-colors"
-                      >
-                         <ExternalLinkIcon className="w-5 h-5" />
-                         <span>{copy.projects.liveDemo}</span>
-                      </a>
+                      {project.url && (
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-sm text-black/68 hover:text-[#2f6b57] transition-colors"
+                        >
+                           <GithubIcon className="w-5 h-5" />
+                           <span>{copy.projects.source}</span>
+                        </a>
+                      )}
+                      {project.weburl && (
+                        <a
+                           href={project.weburl}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           className="flex items-center gap-2 text-sm text-black/68 hover:text-[#2f6b57] transition-colors"
+                        >
+                           <ExternalLinkIcon className="w-5 h-5" />
+                           <span>{copy.projects.liveDemo}</span>
+                        </a>
+                      )}
                    </div>
                 </div>
 
