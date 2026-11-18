@@ -33,7 +33,7 @@ export function ProjectsSection() {
 
       // Projects Animation
       const cards = gsap.utils.toArray<HTMLElement>(".project-card");
-      cards.forEach((card, i) => {
+      cards.forEach((card) => {
         gsap.from(card, {
           scrollTrigger: {
             trigger: card,
@@ -42,26 +42,8 @@ export function ProjectsSection() {
           y: 50,
           opacity: 0,
           duration: 0.8,
-          delay: i * 0.1,
           ease: "power3.out",
         });
-
-        // Parallax Effect for Image
-        const imageContainer = card.querySelector(".project-image-container");
-        if (imageContainer) {
-          gsap.fromTo(imageContainer, 
-            { y: 0 },
-            {
-              y: -50, // Move up as we scroll down
-              scrollTrigger: {
-                 trigger: card,
-                 start: "top bottom",
-                 end: "bottom top",
-                 scrub: 1, // Smooth scrubbing
-              }
-            }
-          );
-        }
       });
     }, sectionRef);
 
@@ -160,8 +142,6 @@ export function ProjectsSection() {
                                      alt={`${project.name} Screen 1`}
                                      fill
                                      sizes="(min-width: 1024px) 18vw, (min-width: 768px) 24vw, 40vw"
-                                     style={{ filter: "invert(0)" }}
-                                     suppressHydrationWarning
                                      className="object-cover"
                                    />
                                </div>
@@ -175,8 +155,6 @@ export function ProjectsSection() {
                                      alt={`${project.name} Screen 3`}
                                      fill
                                      sizes="(min-width: 1024px) 18vw, (min-width: 768px) 24vw, 40vw"
-                                     style={{ filter: "invert(0)" }}
-                                     suppressHydrationWarning
                                      className="object-cover"
                                    />
                                </div>
@@ -190,8 +168,6 @@ export function ProjectsSection() {
                                      alt={`${project.name} Screen 2`}
                                      fill
                                      sizes="(min-width: 1024px) 20vw, (min-width: 768px) 28vw, 45vw"
-                                     style={{ filter: "invert(0)" }}
-                                     suppressHydrationWarning
                                      className="object-cover"
                                    />
                                </div>
@@ -218,11 +194,9 @@ export function ProjectsSection() {
                                       fill
                                       sizes="(min-width: 1024px) 58vw, 100vw"
                                       style={{
-                                        filter: "invert(0)",
                                         transform: `scale(${project.imageZoom ?? 1})`,
                                       }}
-                                      suppressHydrationWarning
-                                      className="object-contain object-center"
+                                       className="object-contain object-center"
                                     />
                                 </div>
                              </div>
