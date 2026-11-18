@@ -123,7 +123,7 @@ export const cvContent: Record<Language, CvContent> = {
       {
         value: "Invest Smart XP",
         label: "atuação atual",
-        detail: "Analista de Sistemas — desenvolvimento full stack em plataformas internas.",
+        detail: "Analista de Sistemas.",
       },
       {
         value: "Eng. da Computação + Pós",
@@ -147,12 +147,7 @@ export const cvContent: Record<Language, CvContent> = {
         period: "2026 · Atual",
         role: "Analista de Sistemas",
         company: "Invest Smart XP",
-        bullets: [
-          "Desenvolvimento full stack em projetos e plataformas internas.",
-          "Configuração de ambiente de desenvolvimento local e gestão de branches em fluxos de homologação e produção.",
-          "Diagnóstico e resolução de erros de deploy e configuração de ambiente.",
-          "Elaboração de requisitos técnicos estruturados para o desenvolvimento das funcionalidades.",
-        ],
+        bullets: [],
       },
       {
         period: "2025 · Atual",
@@ -320,7 +315,7 @@ export const cvContent: Record<Language, CvContent> = {
       {
         value: "Invest Smart XP",
         label: "current role",
-        detail: "Systems Analyst — full stack development on internal platforms.",
+        detail: "Systems Analyst.",
       },
       {
         value: "Computer Eng. + Postgrad",
@@ -344,12 +339,7 @@ export const cvContent: Record<Language, CvContent> = {
         period: "2026 · Present",
         role: "Systems Analyst",
         company: "Invest Smart XP",
-        bullets: [
-          "Full stack development on internal projects and platforms.",
-          "Local development environment setup and branch management across homologation and production flows.",
-          "Diagnosing and fixing deploy and environment configuration issues.",
-          "Writing structured technical requirements for feature development.",
-        ],
+        bullets: [],
       },
       {
         period: "2025 · Present",
