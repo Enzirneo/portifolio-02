@@ -251,7 +251,7 @@ export function HeroSection() {
           document.getElementById("about")?.scrollIntoView({ behavior: "smooth", block: "start" });
         }}
         aria-label={aboutHintLabel}
-        className={`fixed bottom-4 left-1/2 z-30 inline-flex -translate-x-1/2 items-center gap-2 rounded-full border border-black/10 bg-white/80 px-3 py-2 text-[11px] font-semibold tracking-[0.08em] text-black/75 uppercase shadow-[0_10px_28px_rgba(0,0,0,0.12)] backdrop-blur-md transition-all duration-300 sm:bottom-6 sm:px-4 sm:py-2.5 ${
+        className={`fixed bottom-4 left-1/2 z-30 inline-flex -translate-x-1/2 items-center gap-2 rounded-full border border-black/10 bg-white/95 px-3 py-2 text-[11px] font-semibold tracking-[0.08em] text-black/75 uppercase shadow-[0_10px_28px_rgba(0,0,0,0.12)] transition-all duration-300 sm:bottom-6 sm:px-4 sm:py-2.5 ${
           showAboutHint
             ? "pointer-events-auto translate-y-0 opacity-100"
             : "pointer-events-none translate-y-3 opacity-0"
